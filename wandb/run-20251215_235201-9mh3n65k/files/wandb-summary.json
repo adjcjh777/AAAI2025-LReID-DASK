@@ -1,0 +1,1 @@
+{"GPU_Memory_Usage(GB)": 0.5924282073974609, "loss/ce": 6.218865871429443, "loss/tr": 6.395002841949463, "loss/af": 0, "time/batch_time": 15.188495635986328, "lr": 8e-05, "epoch": 0, "iter": 0, "training_phase": 1, "_timestamp": 1765813964.4883642, "_runtime": 42.5569531917572, "_step": 0, "_wandb": {"runtime": 41}}

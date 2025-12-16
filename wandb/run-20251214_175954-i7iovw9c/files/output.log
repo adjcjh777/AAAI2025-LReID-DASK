@@ -1,0 +1,756 @@
+==========
+Args:Namespace(AF_weight=1.0, MODEL='50x', absolute_delta=True, absolute_feat=False, aux_weight=4.5, batch_size=128, blur=False, config_file='config/base.yml', data_dir='/DATA2025/cjh/AAAI2025-LReID-DASK/PRID', dropout=0.5, epochs=60, epochs0=80, eval_epoch=100, evaluate=False, fix_EMA=0.5, global_alpha=100, groups=1, height=256, joint_test=False, l2sp_weight=0.01, logs_dir='/DATA2025/cjh/AAAI2025-LReID-DASK/output', lr=0.008, middle_test=True, milestones=[30], mobile=True, momentum=0.9, n_kernel=1, num_instances=4, optimizer='SGD', print_freq=200, random_rehearser=False, resume='', save_evaluation=False, seed=0, setting=1, test_folder=None, trans=True, warmup_step=10, weight_decay=0.0001, width=128, workers=8)
+==========
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4market |        |            |         |
+|           train           | 12936  |    751     |    6    |
+|           query           |  3368  |    750     |    6    |
+|          gallery          | 15913  |    751     |    6    |
++---------------------------+--------+------------+---------+
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
++--------------------------------+--------+------------+---------+
+|              set               | images | identities | cameras |
++--------------------------------+--------+------------+---------+
+| IncrementalSamples4subcuhksysu |        |            |         |
+|             train              |  4374  |    942     |    1    |
+|             query              |  2900  |    2900    |    1    |
+|            gallery             |  5447  |    2900    |    1    |
++--------------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4duke |        |            |         |
+|          train          | 16522  |    702     |    8    |
+|          query          |  2228  |    702     |    8    |
+|         gallery         | 17661  |    1110    |    8    |
++-------------------------+--------+------------+---------+
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4msmt17 |        |            |         |
+|           train           | 30248  |    1041    |    15   |
+|           query           | 11659  |    3060    |    15   |
+|          gallery          | 82161  |    3060    |    15   |
++---------------------------+--------+------------+---------+
+Checking preprocess conditions...
+imgs_labeled_dir exists: True
+imgs_detected_dir exists: True
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4cuhk03 |        |            |         |
+|           train           |  7368  |    767     |    2    |
+|           query           |  1400  |    700     |    2    |
+|          gallery          |  5328  |    700     |    2    |
++---------------------------+--------+------------+---------+
+/DATA2025/cjh/AAAI2025-LReID-DASK/PRID/SenseReID/test_gallery
++------------------------------+--------+------------+---------+
+|             set              | images | identities | cameras |
++------------------------------+--------+------------+---------+
+| IncrementalSamples4sensereid |        |            |         |
+|            train             |  4428  |    1718    |    2    |
+|            query             |  1040  |    521     |    2    |
+|           gallery            |  3388  |    1718    |    2    |
++------------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4grid |        |            |         |
+|          train          |  250   |    125     |    6    |
+|          query          |  125   |    125     |    5    |
+|         gallery         |  900   |    126     |    5    |
++-------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4prid |        |            |         |
+|          train          |  200   |    100     |    2    |
+|          query          |  100   |    100     |    1    |
+|         gallery         |  649   |    649     |    1    |
++-------------------------+--------+------------+---------+
+using resnet50 as a backbone
+===========building ResNet===========
+param fc.weight in pre-trained model does not exist in this model.base
+param fc.bias in pre-trained model does not exist in this model.base
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+using soft triplet loss for training
+####### starting training on market1501 #######
+Epoch: [0][71/71]	Time 0.308 (0.646)	Loss_ce 6.209 (6.209)	Loss_tp 3.328 (4.110)	
+Epoch: [1][71/71]	Time 0.303 (0.488)	Loss_ce 5.933 (6.071)	Loss_tp 1.752 (2.272)	
+Epoch: [2][71/71]	Time 0.311 (0.473)	Loss_ce 4.964 (5.453)	Loss_tp 0.955 (1.202)	
+Epoch: [3][71/71]	Time 0.333 (0.479)	Loss_ce 3.472 (4.062)	Loss_tp 0.870 (0.850)	
+Epoch: [4][71/71]	Time 0.305 (0.516)	Loss_ce 2.009 (2.572)	Loss_tp 0.595 (0.718)	
+Epoch: [5][71/71]	Time 0.305 (0.464)	Loss_ce 1.128 (1.529)	Loss_tp 0.551 (0.631)	
+Epoch: [6][71/71]	Time 0.306 (0.432)	Loss_ce 0.696 (0.910)	Loss_tp 0.445 (0.520)	
+Epoch: [7][71/71]	Time 0.315 (0.419)	Loss_ce 0.438 (0.619)	Loss_tp 0.446 (0.470)	
+Epoch: [8][71/71]	Time 0.314 (0.411)	Loss_ce 0.371 (0.445)	Loss_tp 0.356 (0.410)	
+Epoch: [9][71/71]	Time 0.312 (0.417)	Loss_ce 0.488 (0.377)	Loss_tp 0.477 (0.390)	
+Epoch: [10][71/71]	Time 0.313 (0.409)	Loss_ce 0.345 (0.300)	Loss_tp 0.561 (0.356)	
+Epoch: [11][71/71]	Time 0.312 (0.415)	Loss_ce 0.169 (0.261)	Loss_tp 0.196 (0.325)	
+Epoch: [12][71/71]	Time 0.317 (0.418)	Loss_ce 0.307 (0.217)	Loss_tp 0.446 (0.296)	
+Epoch: [13][71/71]	Time 0.312 (0.413)	Loss_ce 0.169 (0.191)	Loss_tp 0.275 (0.286)	
+Epoch: [14][71/71]	Time 0.317 (0.411)	Loss_ce 0.148 (0.172)	Loss_tp 0.229 (0.250)	
+Epoch: [15][71/71]	Time 0.311 (0.412)	Loss_ce 0.114 (0.166)	Loss_tp 0.124 (0.239)	
+Epoch: [16][71/71]	Time 0.308 (0.408)	Loss_ce 0.167 (0.134)	Loss_tp 0.220 (0.208)	
+Epoch: [17][71/71]	Time 0.310 (0.409)	Loss_ce 0.085 (0.128)	Loss_tp 0.254 (0.205)	
+Epoch: [18][71/71]	Time 0.308 (0.422)	Loss_ce 0.165 (0.119)	Loss_tp 0.324 (0.190)	
+Epoch: [19][71/71]	Time 0.309 (0.409)	Loss_ce 0.161 (0.113)	Loss_tp 0.209 (0.188)	
+Epoch: [20][71/71]	Time 0.311 (0.408)	Loss_ce 0.049 (0.103)	Loss_tp 0.127 (0.174)	
+Epoch: [21][71/71]	Time 0.310 (0.417)	Loss_ce 0.101 (0.093)	Loss_tp 0.201 (0.159)	
+Epoch: [22][71/71]	Time 0.309 (0.413)	Loss_ce 0.103 (0.090)	Loss_tp 0.253 (0.155)	
+Epoch: [23][71/71]	Time 0.308 (0.411)	Loss_ce 0.127 (0.076)	Loss_tp 0.198 (0.125)	
+Epoch: [24][71/71]	Time 0.305 (0.444)	Loss_ce 0.108 (0.081)	Loss_tp 0.157 (0.130)	
+Epoch: [25][71/71]	Time 0.305 (0.428)	Loss_ce 0.139 (0.075)	Loss_tp 0.141 (0.129)	
+Epoch: [26][71/71]	Time 0.310 (0.409)	Loss_ce 0.045 (0.074)	Loss_tp 0.074 (0.113)	
+Epoch: [27][71/71]	Time 0.306 (0.416)	Loss_ce 0.077 (0.069)	Loss_tp 0.135 (0.112)	
+Epoch: [28][71/71]	Time 0.307 (0.441)	Loss_ce 0.099 (0.064)	Loss_tp 0.122 (0.110)	
+Epoch: [29][71/71]	Time 0.316 (0.421)	Loss_ce 0.039 (0.060)	Loss_tp 0.058 (0.102)	
+Epoch: [30][71/71]	Time 0.314 (0.413)	Loss_ce 0.038 (0.053)	Loss_tp 0.064 (0.094)	
+Epoch: [31][71/71]	Time 0.312 (0.419)	Loss_ce 0.053 (0.046)	Loss_tp 0.099 (0.083)	
+Epoch: [32][71/71]	Time 0.312 (0.414)	Loss_ce 0.017 (0.042)	Loss_tp 0.022 (0.074)	
+Epoch: [33][71/71]	Time 0.315 (0.422)	Loss_ce 0.040 (0.040)	Loss_tp 0.059 (0.069)	
+Epoch: [34][71/71]	Time 0.313 (0.420)	Loss_ce 0.021 (0.043)	Loss_tp 0.080 (0.075)	
+Epoch: [35][71/71]	Time 0.309 (0.414)	Loss_ce 0.039 (0.042)	Loss_tp 0.077 (0.072)	
+Epoch: [36][71/71]	Time 0.309 (0.414)	Loss_ce 0.053 (0.039)	Loss_tp 0.037 (0.059)	
+Epoch: [37][71/71]	Time 0.313 (0.410)	Loss_ce 0.028 (0.036)	Loss_tp 0.037 (0.063)	
+Epoch: [38][71/71]	Time 0.313 (0.407)	Loss_ce 0.041 (0.036)	Loss_tp 0.093 (0.055)	
+Epoch: [39][71/71]	Time 0.311 (0.413)	Loss_ce 0.049 (0.035)	Loss_tp 0.042 (0.056)	
+Epoch: [40][71/71]	Time 0.315 (0.415)	Loss_ce 0.041 (0.035)	Loss_tp 0.054 (0.057)	
+Epoch: [41][71/71]	Time 0.315 (0.408)	Loss_ce 0.041 (0.035)	Loss_tp 0.073 (0.055)	
+Epoch: [42][71/71]	Time 0.309 (0.405)	Loss_ce 0.071 (0.036)	Loss_tp 0.093 (0.058)	
+Epoch: [43][71/71]	Time 0.311 (0.414)	Loss_ce 0.034 (0.032)	Loss_tp 0.019 (0.051)	
+Epoch: [44][71/71]	Time 0.307 (0.411)	Loss_ce 0.014 (0.034)	Loss_tp 0.012 (0.052)	
+Epoch: [45][71/71]	Time 0.309 (0.403)	Loss_ce 0.037 (0.031)	Loss_tp 0.123 (0.057)	
+Epoch: [46][71/71]	Time 0.305 (0.416)	Loss_ce 0.049 (0.035)	Loss_tp 0.049 (0.052)	
+Epoch: [47][71/71]	Time 0.309 (0.406)	Loss_ce 0.056 (0.030)	Loss_tp 0.050 (0.048)	
+Epoch: [48][71/71]	Time 0.313 (0.406)	Loss_ce 0.032 (0.031)	Loss_tp 0.053 (0.052)	
+Epoch: [49][71/71]	Time 0.307 (0.420)	Loss_ce 0.017 (0.032)	Loss_tp 0.020 (0.045)	
+Epoch: [50][71/71]	Time 0.308 (0.403)	Loss_ce 0.033 (0.033)	Loss_tp 0.018 (0.049)	
+Epoch: [51][71/71]	Time 0.309 (0.410)	Loss_ce 0.009 (0.029)	Loss_tp 0.014 (0.053)	
+Epoch: [52][71/71]	Time 0.309 (0.412)	Loss_ce 0.033 (0.032)	Loss_tp 0.037 (0.054)	
+Epoch: [53][71/71]	Time 0.305 (0.405)	Loss_ce 0.057 (0.031)	Loss_tp 0.030 (0.049)	
+Epoch: [54][71/71]	Time 0.313 (0.418)	Loss_ce 0.026 (0.028)	Loss_tp 0.023 (0.044)	
+Epoch: [55][71/71]	Time 0.308 (0.416)	Loss_ce 0.042 (0.027)	Loss_tp 0.093 (0.043)	
+Epoch: [56][71/71]	Time 0.312 (0.409)	Loss_ce 0.046 (0.027)	Loss_tp 0.042 (0.044)	
+Epoch: [57][71/71]	Time 0.314 (0.408)	Loss_ce 0.016 (0.028)	Loss_tp 0.031 (0.044)	
+Epoch: [58][71/71]	Time 0.313 (0.410)	Loss_ce 0.031 (0.030)	Loss_tp 0.091 (0.047)	
+Epoch: [59][71/71]	Time 0.311 (0.419)	Loss_ce 0.027 (0.029)	Loss_tp 0.068 (0.051)	
+Epoch: [60][71/71]	Time 0.308 (0.416)	Loss_ce 0.065 (0.030)	Loss_tp 0.062 (0.044)	
+Epoch: [61][71/71]	Time 0.312 (0.418)	Loss_ce 0.045 (0.028)	Loss_tp 0.069 (0.043)	
+Epoch: [62][71/71]	Time 0.313 (0.413)	Loss_ce 0.015 (0.027)	Loss_tp 0.012 (0.041)	
+Epoch: [63][71/71]	Time 0.307 (0.407)	Loss_ce 0.024 (0.031)	Loss_tp 0.033 (0.043)	
+Epoch: [64][71/71]	Time 0.311 (0.414)	Loss_ce 0.027 (0.027)	Loss_tp 0.047 (0.044)	
+Epoch: [65][71/71]	Time 0.313 (0.409)	Loss_ce 0.032 (0.027)	Loss_tp 0.043 (0.039)	
+Epoch: [66][71/71]	Time 0.311 (0.406)	Loss_ce 0.025 (0.026)	Loss_tp 0.048 (0.041)	
+Epoch: [67][71/71]	Time 0.308 (0.414)	Loss_ce 0.052 (0.026)	Loss_tp 0.076 (0.042)	
+Epoch: [68][71/71]	Time 0.307 (0.409)	Loss_ce 0.017 (0.028)	Loss_tp 0.019 (0.047)	
+Epoch: [69][71/71]	Time 0.310 (0.410)	Loss_ce 0.015 (0.025)	Loss_tp 0.018 (0.044)	
+Epoch: [70][71/71]	Time 0.314 (0.407)	Loss_ce 0.009 (0.025)	Loss_tp 0.016 (0.035)	
+Epoch: [71][71/71]	Time 0.313 (0.412)	Loss_ce 0.018 (0.023)	Loss_tp 0.047 (0.034)	
+Epoch: [72][71/71]	Time 0.308 (0.415)	Loss_ce 0.041 (0.028)	Loss_tp 0.080 (0.046)	
+Epoch: [73][71/71]	Time 0.308 (0.419)	Loss_ce 0.055 (0.028)	Loss_tp 0.096 (0.042)	
+Epoch: [74][71/71]	Time 0.310 (0.403)	Loss_ce 0.016 (0.029)	Loss_tp 0.049 (0.043)	
+Epoch: [75][71/71]	Time 0.309 (0.407)	Loss_ce 0.030 (0.021)	Loss_tp 0.048 (0.037)	
+Epoch: [76][71/71]	Time 0.305 (0.418)	Loss_ce 0.022 (0.024)	Loss_tp 0.024 (0.035)	
+Epoch: [77][71/71]	Time 0.311 (0.403)	Loss_ce 0.016 (0.025)	Loss_tp 0.020 (0.036)	
+Epoch: [78][71/71]	Time 0.312 (0.406)	Loss_ce 0.018 (0.024)	Loss_tp 0.007 (0.039)	
+Epoch: [79][71/71]	Time 0.309 (0.415)	Loss_ce 0.028 (0.023)	Loss_tp 0.039 (0.039)	
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/market1501_checkpoint.pth.tar'
+****** start perform fast testing! ******
+2025-12-14 18:41:35  market1501 feature start
+2025-12-14 18:42:27  market1501 feature done
+fast testing!!!
+mAP/Rank1:	78.5/90.4
+2025-12-14 18:42:38  sense feature start
+2025-12-14 18:42:58  sense feature done
+fast testing!!!
+mAP/Rank1:	35.4/28.0
+2025-12-14 18:42:58  grid feature start
+2025-12-14 18:43:03  grid feature done
+fast testing!!!
+mAP/Rank1:	21.6/15.2
+2025-12-14 18:43:03  prid feature start
+2025-12-14 18:43:08  prid feature done
+fast testing!!!
+mAP/Rank1:	30.4/23.0
+Average mAP on Seen dataset: 78.5
+Average R1 on Seen dataset: 90.4
+market1501		|Average	|
+|78.5/90.4	|78.5/90.4	|
+Average mAP on UnSeen dataset: 29.1
+Average R1 on UnSeen dataset: 22.1
+sense	grid	prid	|Average	|
+|35.4/28.0	|21.6/15.2	|30.4/23.0	|29.1/22.1	|
+78.5	90.4	29.1	22.1
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/market1501_checkpoint.pth.tar'
+Param count for AKPNet's initialized parameters: 1105348
+=> Loaded checkpoint 'rehearser_pretrain_learn_kernel_c1-g1_mobilenet-v3/market1501_rehearser_49.pth.tar'
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V3_Small_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V3_Small_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+using soft triplet loss for training
+####### starting training on cuhk_sysu #######
+Epoch: [0][17/17]	Time 1.148 (1.244)	Loss_ce 3.217 (3.568)	Loss_tp 0.448 (0.851)	
+Epoch: [1][17/17]	Time 0.934 (1.117)	Loss_ce 1.630 (2.625)	Loss_tp 0.257 (0.568)	
+Epoch: [2][17/17]	Time 0.943 (1.137)	Loss_ce 0.657 (1.337)	Loss_tp 0.131 (0.316)	
+Epoch: [3][17/17]	Time 1.394 (1.131)	Loss_ce 0.210 (0.546)	Loss_tp 0.088 (0.206)	
+Epoch: [4][17/17]	Time 0.935 (1.106)	Loss_ce 0.146 (0.244)	Loss_tp 0.064 (0.124)	
+Epoch: [5][17/17]	Time 0.942 (1.111)	Loss_ce 0.069 (0.147)	Loss_tp 0.034 (0.117)	
+Epoch: [6][17/17]	Time 0.951 (1.129)	Loss_ce 0.057 (0.107)	Loss_tp 0.037 (0.089)	
+Epoch: [7][17/17]	Time 0.936 (1.154)	Loss_ce 0.090 (0.096)	Loss_tp 0.028 (0.079)	
+Epoch: [8][17/17]	Time 0.927 (1.140)	Loss_ce 0.030 (0.097)	Loss_tp 0.015 (0.075)	
+Epoch: [9][17/17]	Time 0.949 (1.140)	Loss_ce 0.265 (0.069)	Loss_tp 0.036 (0.084)	
+Epoch: [10][17/17]	Time 0.921 (1.175)	Loss_ce 0.020 (0.070)	Loss_tp 0.015 (0.075)	
+Epoch: [11][17/17]	Time 0.945 (1.134)	Loss_ce 0.024 (0.107)	Loss_tp 0.051 (0.083)	
+Epoch: [12][17/17]	Time 0.935 (1.125)	Loss_ce 0.311 (0.100)	Loss_tp 0.009 (0.069)	
+Epoch: [13][17/17]	Time 0.955 (1.134)	Loss_ce 0.016 (0.113)	Loss_tp 0.026 (0.079)	
+Epoch: [14][17/17]	Time 0.962 (1.158)	Loss_ce 0.020 (0.063)	Loss_tp 0.053 (0.069)	
+Epoch: [15][17/17]	Time 0.965 (1.138)	Loss_ce 0.008 (0.057)	Loss_tp 0.011 (0.047)	
+Epoch: [16][17/17]	Time 0.941 (1.115)	Loss_ce 0.007 (0.049)	Loss_tp 0.008 (0.048)	
+Epoch: [17][17/17]	Time 0.940 (1.139)	Loss_ce 0.006 (0.047)	Loss_tp 0.004 (0.041)	
+Epoch: [18][17/17]	Time 0.947 (1.117)	Loss_ce 0.004 (0.020)	Loss_tp 0.012 (0.034)	
+Epoch: [19][17/17]	Time 0.936 (1.147)	Loss_ce 0.004 (0.034)	Loss_tp 0.004 (0.029)	
+Epoch: [20][17/17]	Time 0.934 (1.149)	Loss_ce 0.005 (0.017)	Loss_tp 0.006 (0.030)	
+Epoch: [21][17/17]	Time 0.967 (1.122)	Loss_ce 0.004 (0.048)	Loss_tp 0.003 (0.028)	
+Epoch: [22][17/17]	Time 0.916 (1.131)	Loss_ce 0.004 (0.053)	Loss_tp 0.007 (0.035)	
+Epoch: [23][17/17]	Time 0.938 (1.132)	Loss_ce 0.004 (0.030)	Loss_tp 0.006 (0.031)	
+Epoch: [24][17/17]	Time 0.934 (1.134)	Loss_ce 0.003 (0.025)	Loss_tp 0.008 (0.036)	
+Epoch: [25][17/17]	Time 0.954 (1.133)	Loss_ce 0.002 (0.063)	Loss_tp 0.009 (0.035)	
+Epoch: [26][17/17]	Time 0.933 (1.129)	Loss_ce 0.003 (0.021)	Loss_tp 0.013 (0.035)	
+Epoch: [27][17/17]	Time 0.951 (1.150)	Loss_ce 0.005 (0.071)	Loss_tp 0.009 (0.031)	
+Epoch: [28][17/17]	Time 0.958 (1.138)	Loss_ce 0.008 (0.020)	Loss_tp 0.026 (0.039)	
+Epoch: [29][17/17]	Time 0.936 (1.136)	Loss_ce 0.160 (0.047)	Loss_tp 0.012 (0.031)	
+Epoch: [30][17/17]	Time 0.935 (1.133)	Loss_ce 0.005 (0.020)	Loss_tp 0.013 (0.036)	
+Epoch: [31][17/17]	Time 0.942 (1.150)	Loss_ce 0.004 (0.021)	Loss_tp 0.005 (0.033)	
+Epoch: [32][17/17]	Time 0.946 (1.121)	Loss_ce 0.147 (0.025)	Loss_tp 0.213 (0.038)	
+Epoch: [33][17/17]	Time 0.954 (1.120)	Loss_ce 0.004 (0.014)	Loss_tp 0.014 (0.031)	
+Epoch: [34][17/17]	Time 0.969 (1.177)	Loss_ce 0.002 (0.016)	Loss_tp 0.003 (0.024)	
+Epoch: [35][17/17]	Time 0.959 (1.126)	Loss_ce 0.003 (0.013)	Loss_tp 0.004 (0.025)	
+Epoch: [36][17/17]	Time 0.963 (1.125)	Loss_ce 0.001 (0.016)	Loss_tp 0.004 (0.027)	
+Epoch: [37][17/17]	Time 0.935 (1.151)	Loss_ce 0.002 (0.016)	Loss_tp 0.003 (0.026)	
+Epoch: [38][17/17]	Time 0.954 (1.141)	Loss_ce 0.003 (0.012)	Loss_tp 0.008 (0.022)	
+Epoch: [39][17/17]	Time 0.949 (1.123)	Loss_ce 0.003 (0.014)	Loss_tp 0.004 (0.020)	
+Epoch: [40][17/17]	Time 0.948 (1.122)	Loss_ce 0.002 (0.014)	Loss_tp 0.002 (0.021)	
+Epoch: [41][17/17]	Time 0.934 (1.147)	Loss_ce 0.003 (0.013)	Loss_tp 0.004 (0.024)	
+Epoch: [42][17/17]	Time 0.920 (1.132)	Loss_ce 0.002 (0.017)	Loss_tp 0.004 (0.023)	
+Epoch: [43][17/17]	Time 0.928 (1.124)	Loss_ce 0.002 (0.008)	Loss_tp 0.016 (0.021)	
+Epoch: [44][17/17]	Time 0.942 (1.128)	Loss_ce 0.003 (0.010)	Loss_tp 0.007 (0.018)	
+Epoch: [45][17/17]	Time 0.936 (1.129)	Loss_ce 0.002 (0.012)	Loss_tp 0.003 (0.023)	
+Epoch: [46][17/17]	Time 0.989 (1.126)	Loss_ce 0.002 (0.012)	Loss_tp 0.002 (0.022)	
+Epoch: [47][17/17]	Time 0.940 (1.134)	Loss_ce 0.002 (0.010)	Loss_tp 0.004 (0.040)	
+Epoch: [48][17/17]	Time 0.936 (1.139)	Loss_ce 0.001 (0.011)	Loss_tp 0.004 (0.019)	
+Epoch: [49][17/17]	Time 0.942 (1.132)	Loss_ce 0.002 (0.008)	Loss_tp 0.004 (0.018)	
+Epoch: [50][17/17]	Time 0.963 (1.121)	Loss_ce 0.002 (0.012)	Loss_tp 0.002 (0.026)	
+Epoch: [51][17/17]	Time 0.937 (1.142)	Loss_ce 0.003 (0.010)	Loss_tp 0.004 (0.018)	
+Epoch: [52][17/17]	Time 0.939 (1.120)	Loss_ce 0.001 (0.012)	Loss_tp 0.005 (0.018)	
+Epoch: [53][17/17]	Time 0.935 (1.154)	Loss_ce 0.001 (0.010)	Loss_tp 0.003 (0.017)	
+Epoch: [54][17/17]	Time 0.959 (1.151)	Loss_ce 0.001 (0.010)	Loss_tp 0.003 (0.020)	
+Epoch: [55][17/17]	Time 0.937 (1.122)	Loss_ce 0.002 (0.009)	Loss_tp 0.006 (0.019)	
+Epoch: [56][17/17]	Time 0.935 (1.140)	Loss_ce 0.003 (0.008)	Loss_tp 0.003 (0.020)	
+Epoch: [57][17/17]	Time 0.945 (1.152)	Loss_ce 0.011 (0.014)	Loss_tp 0.003 (0.019)	
+Epoch: [58][17/17]	Time 0.934 (1.134)	Loss_ce 0.001 (0.010)	Loss_tp 0.002 (0.021)	
+Epoch: [59][17/17]	Time 0.932 (1.127)	Loss_ce 0.007 (0.009)	Loss_tp 0.006 (0.018)	
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/cuhk_sysu_checkpoint.pth.tar'
+****** start perform fast testing! ******
+2025-12-14 19:03:40  market1501 feature start
+2025-12-14 19:03:58  market1501 feature done
+fast testing!!!
+mAP/Rank1:	69.1/86.0
+2025-12-14 19:04:07  cuhk_sysu feature start
+2025-12-14 19:04:26  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	83.7/85.0
+2025-12-14 19:04:28  sense feature start
+2025-12-14 19:04:33  sense feature done
+fast testing!!!
+mAP/Rank1:	38.5/30.5
+2025-12-14 19:04:33  grid feature start
+2025-12-14 19:04:36  grid feature done
+fast testing!!!
+mAP/Rank1:	38.4/28.0
+2025-12-14 19:04:36  prid feature start
+2025-12-14 19:04:38  prid feature done
+fast testing!!!
+mAP/Rank1:	43.0/35.0
+Average mAP on Seen dataset: 76.4
+Average R1 on Seen dataset: 85.5
+market1501		cuhk_sysu		|Average	|
+|69.1/86.0	|83.7/85.0	|76.4/85.5	|
+Average mAP on UnSeen dataset: 40.0
+Average R1 on UnSeen dataset: 31.2
+sense	grid	prid	|Average	|
+|38.5/30.5	|38.4/28.0	|43.0/35.0	|40.0/31.2	|
+76.4	85.5	40.0	31.2
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/cuhk_sysu_checkpoint.pth.tar'
+*******combining the models with alpha: 0.5*******
+module.classifier.weight ...
+****** start perform fast testing! ******
+2025-12-14 19:04:47  market1501 feature start
+2025-12-14 19:05:05  market1501 feature done
+fast testing!!!
+mAP/Rank1:	77.9/90.8
+2025-12-14 19:05:11  cuhk_sysu feature start
+2025-12-14 19:05:19  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	80.8/82.6
+2025-12-14 19:05:21  sense feature start
+2025-12-14 19:05:27  sense feature done
+fast testing!!!
+mAP/Rank1:	41.1/33.7
+2025-12-14 19:05:27  grid feature start
+2025-12-14 19:05:30  grid feature done
+fast testing!!!
+mAP/Rank1:	32.7/22.4
+2025-12-14 19:05:30  prid feature start
+2025-12-14 19:05:32  prid feature done
+fast testing!!!
+mAP/Rank1:	40.3/35.0
+Average mAP on Seen dataset: 79.4
+Average R1 on Seen dataset: 86.7
+market1501		cuhk_sysu		|Average	|
+|77.9/90.8	|80.8/82.6	|79.4/86.7	|
+Average mAP on UnSeen dataset: 38.0
+Average R1 on UnSeen dataset: 30.4
+sense	grid	prid	|Average	|
+|41.1/33.7	|32.7/22.4	|40.3/35.0	|38.0/30.4	|
+79.4	86.7	38.0	30.4
+Param count for AKPNet's initialized parameters: 1105348
+=> Loaded checkpoint 'rehearser_pretrain_learn_kernel_c1-g1_mobilenet-v3/cuhk_sysu_rehearser_49.pth.tar'
+using soft triplet loss for training
+####### starting training on dukemtmc #######
+Epoch: [0][86/86]	Time 0.952 (1.098)	Loss_ce 3.826 (5.123)	Loss_tp 0.985 (1.669)	
+Epoch: [1][86/86]	Time 0.948 (1.085)	Loss_ce 0.800 (1.988)	Loss_tp 0.500 (0.808)	
+Epoch: [2][86/86]	Time 0.956 (1.091)	Loss_ce 0.376 (0.656)	Loss_tp 0.374 (0.574)	
+Epoch: [3][86/86]	Time 0.985 (1.103)	Loss_ce 0.144 (0.389)	Loss_tp 0.245 (0.493)	
+Epoch: [4][86/86]	Time 0.967 (1.099)	Loss_ce 0.180 (0.291)	Loss_tp 0.348 (0.463)	
+Epoch: [5][86/86]	Time 0.999 (1.101)	Loss_ce 0.088 (0.239)	Loss_tp 0.244 (0.427)	
+Epoch: [6][86/86]	Time 0.973 (1.109)	Loss_ce 0.105 (0.214)	Loss_tp 0.470 (0.433)	
+Epoch: [7][86/86]	Time 0.960 (1.104)	Loss_ce 0.128 (0.243)	Loss_tp 0.149 (0.471)	
+Epoch: [8][86/86]	Time 0.961 (1.093)	Loss_ce 0.059 (0.235)	Loss_tp 0.195 (0.462)	
+Epoch: [9][86/86]	Time 0.987 (1.097)	Loss_ce 0.058 (0.247)	Loss_tp 0.230 (0.460)	
+Epoch: [10][86/86]	Time 1.014 (1.102)	Loss_ce 0.625 (0.239)	Loss_tp 0.265 (0.501)	
+Epoch: [11][86/86]	Time 0.978 (1.099)	Loss_ce 0.052 (0.240)	Loss_tp 0.383 (0.474)	
+Epoch: [12][86/86]	Time 0.952 (1.102)	Loss_ce 0.046 (0.173)	Loss_tp 0.251 (0.416)	
+Epoch: [13][86/86]	Time 0.960 (1.096)	Loss_ce 0.108 (0.159)	Loss_tp 0.378 (0.387)	
+Epoch: [14][86/86]	Time 0.950 (1.115)	Loss_ce 0.029 (0.142)	Loss_tp 0.100 (0.374)	
+Epoch: [15][86/86]	Time 1.035 (1.102)	Loss_ce 0.342 (0.180)	Loss_tp 0.221 (0.399)	
+Epoch: [16][86/86]	Time 0.964 (1.118)	Loss_ce 0.165 (0.161)	Loss_tp 0.312 (0.411)	
+Epoch: [17][86/86]	Time 0.950 (1.104)	Loss_ce 0.044 (0.130)	Loss_tp 0.120 (0.364)	
+Epoch: [18][86/86]	Time 0.951 (1.112)	Loss_ce 0.037 (0.107)	Loss_tp 0.155 (0.331)	
+Epoch: [19][86/86]	Time 0.958 (1.096)	Loss_ce 0.017 (0.127)	Loss_tp 0.259 (0.350)	
+Epoch: [20][86/86]	Time 0.992 (1.097)	Loss_ce 0.046 (0.129)	Loss_tp 0.366 (0.345)	
+Epoch: [21][86/86]	Time 0.958 (1.080)	Loss_ce 0.043 (0.128)	Loss_tp 0.215 (0.372)	
+Epoch: [22][86/86]	Time 1.000 (1.096)	Loss_ce 0.063 (0.130)	Loss_tp 0.208 (0.330)	
+Epoch: [23][86/86]	Time 0.969 (1.118)	Loss_ce 0.017 (0.104)	Loss_tp 0.185 (0.336)	
+Epoch: [24][86/86]	Time 0.983 (1.114)	Loss_ce 0.042 (0.110)	Loss_tp 0.178 (0.329)	
+Epoch: [25][86/86]	Time 0.962 (1.089)	Loss_ce 0.041 (0.116)	Loss_tp 0.285 (0.308)	
+Epoch: [26][86/86]	Time 0.959 (1.105)	Loss_ce 0.017 (0.155)	Loss_tp 0.113 (0.361)	
+Epoch: [27][86/86]	Time 0.952 (1.110)	Loss_ce 0.043 (0.131)	Loss_tp 0.232 (0.384)	
+Epoch: [28][86/86]	Time 0.951 (1.095)	Loss_ce 0.029 (0.123)	Loss_tp 0.381 (0.355)	
+Epoch: [29][86/86]	Time 0.950 (1.099)	Loss_ce 0.066 (0.111)	Loss_tp 0.192 (0.345)	
+Epoch: [30][86/86]	Time 0.959 (1.081)	Loss_ce 0.005 (0.060)	Loss_tp 0.046 (0.214)	
+Epoch: [31][86/86]	Time 0.974 (1.099)	Loss_ce 0.001 (0.040)	Loss_tp 0.043 (0.147)	
+Epoch: [32][86/86]	Time 1.179 (1.161)	Loss_ce 0.003 (0.033)	Loss_tp 0.046 (0.127)	
+Epoch: [33][86/86]	Time 1.172 (1.352)	Loss_ce 0.002 (0.029)	Loss_tp 0.057 (0.123)	
+Epoch: [34][86/86]	Time 1.009 (1.354)	Loss_ce 0.000 (0.028)	Loss_tp 0.014 (0.112)	
+Epoch: [35][86/86]	Time 1.083 (1.371)	Loss_ce 0.000 (0.026)	Loss_tp 0.019 (0.106)	
+Epoch: [36][86/86]	Time 1.120 (1.357)	Loss_ce 0.000 (0.025)	Loss_tp 0.017 (0.097)	
+Epoch: [37][86/86]	Time 1.056 (1.342)	Loss_ce 0.007 (0.026)	Loss_tp 0.135 (0.095)	
+Epoch: [38][86/86]	Time 0.986 (1.342)	Loss_ce 0.000 (0.024)	Loss_tp 0.011 (0.089)	
+Epoch: [39][86/86]	Time 0.998 (1.316)	Loss_ce 0.000 (0.022)	Loss_tp 0.017 (0.094)	
+Epoch: [40][86/86]	Time 0.948 (1.274)	Loss_ce 0.000 (0.024)	Loss_tp 0.015 (0.086)	
+Epoch: [41][86/86]	Time 0.965 (1.151)	Loss_ce 0.000 (0.024)	Loss_tp 0.011 (0.088)	
+Epoch: [42][86/86]	Time 0.964 (1.129)	Loss_ce 0.000 (0.024)	Loss_tp 0.017 (0.089)	
+Epoch: [43][86/86]	Time 0.950 (1.134)	Loss_ce 0.000 (0.024)	Loss_tp 0.013 (0.084)	
+Epoch: [44][86/86]	Time 0.965 (1.108)	Loss_ce 0.000 (0.021)	Loss_tp 0.013 (0.079)	
+Epoch: [45][86/86]	Time 0.965 (1.107)	Loss_ce 0.000 (0.018)	Loss_tp 0.061 (0.076)	
+Epoch: [46][86/86]	Time 0.957 (1.110)	Loss_ce 0.000 (0.020)	Loss_tp 0.012 (0.077)	
+Epoch: [47][86/86]	Time 0.957 (1.115)	Loss_ce 0.000 (0.020)	Loss_tp 0.014 (0.072)	
+Epoch: [48][86/86]	Time 0.980 (1.127)	Loss_ce 0.000 (0.017)	Loss_tp 0.017 (0.072)	
+Epoch: [49][86/86]	Time 0.979 (1.097)	Loss_ce 0.000 (0.018)	Loss_tp 0.010 (0.070)	
+Epoch: [50][86/86]	Time 0.948 (1.114)	Loss_ce 0.000 (0.021)	Loss_tp 0.015 (0.075)	
+Epoch: [51][86/86]	Time 0.961 (1.101)	Loss_ce 0.000 (0.020)	Loss_tp 0.024 (0.078)	
+Epoch: [52][86/86]	Time 0.966 (1.094)	Loss_ce 0.000 (0.021)	Loss_tp 0.037 (0.077)	
+Epoch: [53][86/86]	Time 0.969 (1.102)	Loss_ce 0.000 (0.019)	Loss_tp 0.019 (0.070)	
+Epoch: [54][86/86]	Time 0.971 (1.103)	Loss_ce 0.000 (0.018)	Loss_tp 0.016 (0.072)	
+Epoch: [55][86/86]	Time 1.001 (1.105)	Loss_ce 0.000 (0.018)	Loss_tp 0.009 (0.074)	
+Epoch: [56][86/86]	Time 0.956 (1.106)	Loss_ce 0.000 (0.017)	Loss_tp 0.015 (0.068)	
+Epoch: [57][86/86]	Time 0.955 (1.108)	Loss_ce 0.000 (0.017)	Loss_tp 0.016 (0.068)	
+Epoch: [58][86/86]	Time 0.959 (1.103)	Loss_ce 0.000 (0.019)	Loss_tp 0.015 (0.074)	
+Epoch: [59][86/86]	Time 1.031 (1.111)	Loss_ce 0.000 (0.017)	Loss_tp 0.016 (0.073)	
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/dukemtmc_checkpoint.pth.tar'
+****** start perform fast testing! ******
+2025-12-14 20:44:42  market1501 feature start
+2025-12-14 20:45:40  market1501 feature done
+fast testing!!!
+mAP/Rank1:	50.2/76.0
+2025-12-14 20:46:45  cuhk_sysu feature start
+2025-12-14 20:47:08  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	75.6/77.9
+2025-12-14 20:47:10  dukemtmc feature start
+2025-12-14 20:48:48  dukemtmc feature done
+fast testing!!!
+mAP/Rank1:	68.7/82.8
+2025-12-14 20:48:52  sense feature start
+2025-12-14 20:49:06  sense feature done
+fast testing!!!
+mAP/Rank1:	38.4/30.9
+2025-12-14 20:49:07  grid feature start
+2025-12-14 20:49:14  grid feature done
+fast testing!!!
+mAP/Rank1:	32.8/22.4
+2025-12-14 20:49:14  prid feature start
+2025-12-14 20:49:19  prid feature done
+fast testing!!!
+mAP/Rank1:	57.8/50.0
+Average mAP on Seen dataset: 64.9
+Average R1 on Seen dataset: 78.9
+market1501		cuhk_sysu		dukemtmc		|Average	|
+|50.2/76.0	|75.6/77.9	|68.7/82.8	|64.9/78.9	|
+Average mAP on UnSeen dataset: 43.0
+Average R1 on UnSeen dataset: 34.4
+sense	grid	prid	|Average	|
+|38.4/30.9	|32.8/22.4	|57.8/50.0	|43.0/34.4	|
+64.9	78.9	43.0	34.4
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/dukemtmc_checkpoint.pth.tar'
+*******combining the models with alpha: 0.5*******
+module.classifier.weight ...
+****** start perform fast testing! ******
+2025-12-14 20:49:49  market1501 feature start
+2025-12-14 20:50:11  market1501 feature done
+fast testing!!!
+mAP/Rank1:	72.6/88.5
+2025-12-14 20:51:35  cuhk_sysu feature start
+2025-12-14 20:51:51  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	82.4/84.1
+2025-12-14 20:51:52  dukemtmc feature start
+2025-12-14 20:52:11  dukemtmc feature done
+fast testing!!!
+mAP/Rank1:	55.5/71.7
+2025-12-14 20:52:15  sense feature start
+2025-12-14 20:52:20  sense feature done
+fast testing!!!
+mAP/Rank1:	44.9/36.6
+2025-12-14 20:52:21  grid feature start
+2025-12-14 20:52:23  grid feature done
+fast testing!!!
+mAP/Rank1:	43.3/32.0
+2025-12-14 20:52:23  prid feature start
+2025-12-14 20:52:26  prid feature done
+fast testing!!!
+mAP/Rank1:	52.8/44.0
+Average mAP on Seen dataset: 70.2
+Average R1 on Seen dataset: 81.4
+market1501		cuhk_sysu		dukemtmc		|Average	|
+|72.6/88.5	|82.4/84.1	|55.5/71.7	|70.2/81.4	|
+Average mAP on UnSeen dataset: 47.0
+Average R1 on UnSeen dataset: 37.5
+sense	grid	prid	|Average	|
+|44.9/36.6	|43.3/32.0	|52.8/44.0	|47.0/37.5	|
+70.2	81.4	47.0	37.5
+Param count for AKPNet's initialized parameters: 1105348
+=> Loaded checkpoint 'rehearser_pretrain_learn_kernel_c1-g1_mobilenet-v3/dukemtmc_rehearser_49.pth.tar'
+using soft triplet loss for training
+####### starting training on msmt17 #######
+Epoch: [0][103/103]	Time 0.952 (1.127)	Loss_ce 6.881 (8.156)	Loss_tp 1.761 (1.964)	
+Epoch: [1][103/103]	Time 0.957 (1.116)	Loss_ce 1.113 (2.930)	Loss_tp 0.646 (0.992)	
+Epoch: [2][103/103]	Time 0.966 (1.116)	Loss_ce 0.295 (0.696)	Loss_tp 0.470 (0.647)	
+Epoch: [3][103/103]	Time 0.979 (1.124)	Loss_ce 0.271 (0.377)	Loss_tp 0.447 (0.547)	
+Epoch: [4][103/103]	Time 0.975 (1.132)	Loss_ce 0.149 (0.288)	Loss_tp 0.470 (0.529)	
+Epoch: [5][103/103]	Time 1.080 (1.122)	Loss_ce 0.082 (0.257)	Loss_tp 0.331 (0.508)	
+Epoch: [6][103/103]	Time 1.011 (1.115)	Loss_ce 0.100 (0.232)	Loss_tp 0.279 (0.507)	
+Epoch: [7][103/103]	Time 0.979 (1.135)	Loss_ce 0.183 (0.232)	Loss_tp 0.460 (0.529)	
+Epoch: [8][103/103]	Time 0.973 (1.118)	Loss_ce 0.119 (0.233)	Loss_tp 0.419 (0.546)	
+Epoch: [9][103/103]	Time 0.975 (1.105)	Loss_ce 0.135 (0.232)	Loss_tp 0.447 (0.566)	
+Epoch: [10][103/103]	Time 0.992 (1.124)	Loss_ce 0.243 (0.268)	Loss_tp 0.561 (0.595)	
+Epoch: [11][103/103]	Time 0.962 (1.122)	Loss_ce 0.097 (0.252)	Loss_tp 0.290 (0.574)	
+Epoch: [12][103/103]	Time 0.987 (1.122)	Loss_ce 0.087 (0.240)	Loss_tp 0.499 (0.545)	
+Epoch: [13][103/103]	Time 0.965 (1.119)	Loss_ce 0.282 (0.250)	Loss_tp 0.609 (0.586)	
+Epoch: [14][103/103]	Time 0.972 (1.123)	Loss_ce 0.129 (0.342)	Loss_tp 0.700 (0.681)	
+Epoch: [15][103/103]	Time 0.964 (1.109)	Loss_ce 0.075 (0.357)	Loss_tp 0.420 (0.697)	
+Epoch: [16][103/103]	Time 0.959 (1.119)	Loss_ce 0.073 (0.177)	Loss_tp 0.293 (0.509)	
+Epoch: [17][103/103]	Time 0.954 (1.119)	Loss_ce 0.149 (0.164)	Loss_tp 0.377 (0.472)	
+Epoch: [18][103/103]	Time 0.962 (1.117)	Loss_ce 0.040 (0.184)	Loss_tp 0.409 (0.532)	
+Epoch: [19][103/103]	Time 0.964 (1.120)	Loss_ce 0.057 (0.135)	Loss_tp 0.263 (0.460)	
+Epoch: [20][103/103]	Time 0.988 (1.132)	Loss_ce 0.051 (0.147)	Loss_tp 0.334 (0.469)	
+Epoch: [21][103/103]	Time 0.985 (1.122)	Loss_ce 0.089 (0.152)	Loss_tp 0.440 (0.471)	
+Epoch: [22][103/103]	Time 0.958 (1.138)	Loss_ce 0.068 (0.159)	Loss_tp 0.320 (0.487)	
+Epoch: [23][103/103]	Time 0.966 (1.126)	Loss_ce 0.070 (0.157)	Loss_tp 0.209 (0.487)	
+Epoch: [24][103/103]	Time 0.966 (1.133)	Loss_ce 0.094 (0.148)	Loss_tp 0.278 (0.461)	
+Epoch: [25][103/103]	Time 1.036 (1.133)	Loss_ce 0.122 (0.186)	Loss_tp 0.402 (0.508)	
+Epoch: [26][103/103]	Time 1.033 (1.128)	Loss_ce 0.081 (0.179)	Loss_tp 0.482 (0.508)	
+Epoch: [27][103/103]	Time 0.982 (1.107)	Loss_ce 0.072 (0.156)	Loss_tp 0.505 (0.475)	
+Epoch: [28][103/103]	Time 0.982 (1.123)	Loss_ce 0.255 (0.194)	Loss_tp 0.530 (0.532)	
+Epoch: [29][103/103]	Time 0.997 (1.123)	Loss_ce 0.045 (0.161)	Loss_tp 0.366 (0.475)	
+Epoch: [30][103/103]	Time 0.959 (1.116)	Loss_ce 0.003 (0.081)	Loss_tp 0.208 (0.275)	
+Epoch: [31][103/103]	Time 0.952 (1.115)	Loss_ce 0.001 (0.056)	Loss_tp 0.073 (0.203)	
+Epoch: [32][103/103]	Time 0.969 (1.120)	Loss_ce 0.001 (0.046)	Loss_tp 0.038 (0.172)	
+Epoch: [33][103/103]	Time 0.962 (1.133)	Loss_ce 0.000 (0.037)	Loss_tp 0.040 (0.146)	
+Epoch: [34][103/103]	Time 1.052 (1.124)	Loss_ce 0.002 (0.037)	Loss_tp 0.045 (0.142)	
+Epoch: [35][103/103]	Time 0.967 (1.113)	Loss_ce 0.000 (0.029)	Loss_tp 0.033 (0.126)	
+Epoch: [36][103/103]	Time 0.960 (1.126)	Loss_ce 0.001 (0.033)	Loss_tp 0.097 (0.121)	
+Epoch: [37][103/103]	Time 0.955 (1.119)	Loss_ce 0.000 (0.029)	Loss_tp 0.019 (0.114)	
+Epoch: [38][103/103]	Time 0.985 (1.127)	Loss_ce 0.002 (0.030)	Loss_tp 0.077 (0.112)	
+Epoch: [39][103/103]	Time 1.002 (1.116)	Loss_ce 0.000 (0.028)	Loss_tp 0.017 (0.107)	
+Epoch: [40][103/103]	Time 0.965 (1.122)	Loss_ce 0.000 (0.023)	Loss_tp 0.021 (0.103)	
+Epoch: [41][103/103]	Time 0.990 (1.125)	Loss_ce 0.000 (0.024)	Loss_tp 0.052 (0.099)	
+Epoch: [42][103/103]	Time 0.996 (1.123)	Loss_ce 0.000 (0.023)	Loss_tp 0.027 (0.097)	
+Epoch: [43][103/103]	Time 0.987 (1.127)	Loss_ce 0.001 (0.021)	Loss_tp 0.052 (0.099)	
+Epoch: [44][103/103]	Time 0.968 (1.127)	Loss_ce 0.000 (0.023)	Loss_tp 0.021 (0.095)	
+Epoch: [45][103/103]	Time 0.989 (1.122)	Loss_ce 0.000 (0.022)	Loss_tp 0.077 (0.094)	
+Epoch: [46][103/103]	Time 0.955 (1.122)	Loss_ce 0.000 (0.023)	Loss_tp 0.042 (0.093)	
+Epoch: [47][103/103]	Time 0.991 (1.111)	Loss_ce 0.000 (0.022)	Loss_tp 0.036 (0.091)	
+Epoch: [48][103/103]	Time 1.003 (1.118)	Loss_ce 0.000 (0.022)	Loss_tp 0.037 (0.089)	
+Epoch: [49][103/103]	Time 1.000 (1.127)	Loss_ce 0.000 (0.021)	Loss_tp 0.025 (0.083)	
+Epoch: [50][103/103]	Time 0.987 (1.124)	Loss_ce 0.000 (0.019)	Loss_tp 0.030 (0.091)	
+Epoch: [51][103/103]	Time 1.026 (1.119)	Loss_ce 0.000 (0.019)	Loss_tp 0.020 (0.083)	
+Epoch: [52][103/103]	Time 0.970 (1.129)	Loss_ce 0.000 (0.018)	Loss_tp 0.026 (0.085)	
+Epoch: [53][103/103]	Time 0.988 (1.136)	Loss_ce 0.000 (0.018)	Loss_tp 0.024 (0.082)	
+Epoch: [54][103/103]	Time 0.971 (1.129)	Loss_ce 0.000 (0.020)	Loss_tp 0.019 (0.089)	
+Epoch: [55][103/103]	Time 0.961 (1.125)	Loss_ce 0.000 (0.018)	Loss_tp 0.038 (0.085)	
+Epoch: [56][103/103]	Time 0.985 (1.119)	Loss_ce 0.000 (0.021)	Loss_tp 0.017 (0.080)	
+Epoch: [57][103/103]	Time 0.953 (1.116)	Loss_ce 0.000 (0.017)	Loss_tp 0.025 (0.082)	
+Epoch: [58][103/103]	Time 0.983 (1.118)	Loss_ce 0.000 (0.020)	Loss_tp 0.035 (0.088)	
+Epoch: [59][103/103]	Time 0.981 (1.115)	Loss_ce 0.000 (0.022)	Loss_tp 0.012 (0.088)	
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/msmt17_checkpoint.pth.tar'
+****** start perform fast testing! ******
+2025-12-14 22:52:07  market1501 feature start
+2025-12-14 22:52:25  market1501 feature done
+fast testing!!!
+mAP/Rank1:	47.0/73.0
+2025-12-14 22:55:03  cuhk_sysu feature start
+2025-12-14 22:55:19  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	76.7/78.8
+2025-12-14 22:55:21  dukemtmc feature start
+2025-12-14 22:55:38  dukemtmc feature done
+fast testing!!!
+mAP/Rank1:	46.2/65.8
+2025-12-14 22:55:43  msmt17 feature start
+2025-12-14 23:11:58  msmt17 feature done
+fast testing!!!
+mAP/Rank1:	38.2/67.1
+2025-12-15 01:08:24  sense feature start
+2025-12-15 01:08:48  sense feature done
+fast testing!!!
+mAP/Rank1:	43.6/35.2
+2025-12-15 01:08:49  grid feature start
+2025-12-15 01:08:54  grid feature done
+fast testing!!!
+mAP/Rank1:	31.0/23.2
+2025-12-15 01:08:54  prid feature start
+2025-12-15 01:08:57  prid feature done
+fast testing!!!
+mAP/Rank1:	56.1/47.0
+Average mAP on Seen dataset: 52.0
+Average R1 on Seen dataset: 71.2
+market1501		cuhk_sysu		dukemtmc		msmt17		|Average	|
+|47.0/73.0	|76.7/78.8	|46.2/65.8	|38.2/67.1	|52.0/71.2	|
+Average mAP on UnSeen dataset: 43.6
+Average R1 on UnSeen dataset: 35.1
+sense	grid	prid	|Average	|
+|43.6/35.2	|31.0/23.2	|56.1/47.0	|43.6/35.1	|
+52.0	71.2	43.6	35.1
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/msmt17_checkpoint.pth.tar'
+*******combining the models with alpha: 0.5*******
+module.classifier.weight ...
+****** start perform fast testing! ******
+2025-12-15 01:11:14  market1501 feature start
+2025-12-15 01:12:13  market1501 feature done
+fast testing!!!
+mAP/Rank1:	67.6/86.6
+2025-12-15 01:13:11  cuhk_sysu feature start
+2025-12-15 01:13:33  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	83.8/85.6
+2025-12-15 01:13:35  dukemtmc feature start
+2025-12-15 01:15:04  dukemtmc feature done
+fast testing!!!
+mAP/Rank1:	56.4/72.5
+2025-12-15 01:15:08  msmt17 feature start
+2025-12-15 01:29:39  msmt17 feature done
+fast testing!!!
+mAP/Rank1:	25.8/52.8
+2025-12-15 02:32:33  sense feature start
+2025-12-15 02:32:49  sense feature done
+fast testing!!!
+mAP/Rank1:	49.1/40.2
+2025-12-15 02:32:50  grid feature start
+2025-12-15 02:32:55  grid feature done
+fast testing!!!
+mAP/Rank1:	43.2/32.0
+2025-12-15 02:32:55  prid feature start
+2025-12-15 02:32:59  prid feature done
+fast testing!!!
+mAP/Rank1:	61.8/51.0
+Average mAP on Seen dataset: 58.4
+Average R1 on Seen dataset: 74.4
+market1501		cuhk_sysu		dukemtmc		msmt17		|Average	|
+|67.6/86.6	|83.8/85.6	|56.4/72.5	|25.8/52.8	|58.4/74.4	|
+Average mAP on UnSeen dataset: 51.4
+Average R1 on UnSeen dataset: 41.1
+sense	grid	prid	|Average	|
+|49.1/40.2	|43.2/32.0	|61.8/51.0	|51.4/41.1	|
+58.4	74.4	51.4	41.1
+Param count for AKPNet's initialized parameters: 1105348
+=> Loaded checkpoint 'rehearser_pretrain_learn_kernel_c1-g1_mobilenet-v3/msmt17_rehearser_49.pth.tar'
+using soft triplet loss for training
+####### starting training on cuhk03 #######
+Epoch: [0][38/38]	Time 0.938 (1.099)	Loss_ce 8.238 (9.640)	Loss_tp 1.013 (1.185)	
+Epoch: [1][38/38]	Time 0.951 (1.109)	Loss_ce 2.497 (5.178)	Loss_tp 0.396 (0.777)	
+Epoch: [2][38/38]	Time 0.963 (1.127)	Loss_ce 0.468 (1.264)	Loss_tp 0.283 (0.405)	
+Epoch: [3][38/38]	Time 0.959 (1.124)	Loss_ce 0.197 (0.344)	Loss_tp 0.095 (0.263)	
+Epoch: [4][38/38]	Time 1.024 (1.121)	Loss_ce 0.038 (0.183)	Loss_tp 0.052 (0.188)	
+Epoch: [5][38/38]	Time 1.290 (1.124)	Loss_ce 0.049 (0.127)	Loss_tp 0.040 (0.157)	
+Epoch: [6][38/38]	Time 0.989 (1.116)	Loss_ce 0.024 (0.106)	Loss_tp 0.050 (0.136)	
+Epoch: [7][38/38]	Time 0.975 (1.130)	Loss_ce 0.044 (0.122)	Loss_tp 0.046 (0.155)	
+Epoch: [8][38/38]	Time 0.974 (1.126)	Loss_ce 0.022 (0.093)	Loss_tp 0.038 (0.135)	
+Epoch: [9][38/38]	Time 0.991 (1.129)	Loss_ce 0.013 (0.072)	Loss_tp 0.049 (0.123)	
+Epoch: [10][38/38]	Time 0.989 (1.147)	Loss_ce 0.009 (0.066)	Loss_tp 0.034 (0.116)	
+Epoch: [11][38/38]	Time 0.961 (1.115)	Loss_ce 0.009 (0.060)	Loss_tp 0.045 (0.108)	
+Epoch: [12][38/38]	Time 0.969 (1.120)	Loss_ce 0.007 (0.052)	Loss_tp 0.035 (0.102)	
+Epoch: [13][38/38]	Time 0.967 (1.129)	Loss_ce 0.005 (0.051)	Loss_tp 0.026 (0.093)	
+Epoch: [14][38/38]	Time 0.963 (1.116)	Loss_ce 0.007 (0.038)	Loss_tp 0.018 (0.082)	
+Epoch: [15][38/38]	Time 1.016 (1.137)	Loss_ce 0.003 (0.041)	Loss_tp 0.015 (0.092)	
+Epoch: [16][38/38]	Time 0.956 (1.130)	Loss_ce 0.003 (0.034)	Loss_tp 0.026 (0.074)	
+Epoch: [17][38/38]	Time 1.054 (1.123)	Loss_ce 0.007 (0.036)	Loss_tp 0.021 (0.073)	
+Epoch: [18][38/38]	Time 0.977 (1.127)	Loss_ce 0.005 (0.031)	Loss_tp 0.011 (0.065)	
+Epoch: [19][38/38]	Time 0.994 (1.127)	Loss_ce 0.003 (0.028)	Loss_tp 0.018 (0.058)	
+Epoch: [20][38/38]	Time 0.970 (1.133)	Loss_ce 0.005 (0.025)	Loss_tp 0.010 (0.059)	
+Epoch: [21][38/38]	Time 0.978 (1.132)	Loss_ce 0.002 (0.023)	Loss_tp 0.022 (0.062)	
+Epoch: [22][38/38]	Time 0.967 (1.108)	Loss_ce 0.003 (0.026)	Loss_tp 0.006 (0.053)	
+Epoch: [23][38/38]	Time 0.969 (1.129)	Loss_ce 0.004 (0.024)	Loss_tp 0.014 (0.057)	
+Epoch: [24][38/38]	Time 0.972 (1.120)	Loss_ce 0.002 (0.023)	Loss_tp 0.012 (0.054)	
+Epoch: [25][38/38]	Time 0.985 (1.106)	Loss_ce 0.002 (0.026)	Loss_tp 0.010 (0.060)	
+Epoch: [26][38/38]	Time 0.972 (1.112)	Loss_ce 0.003 (0.022)	Loss_tp 0.005 (0.057)	
+Epoch: [27][38/38]	Time 0.960 (1.111)	Loss_ce 0.005 (0.023)	Loss_tp 0.038 (0.060)	
+Epoch: [28][38/38]	Time 0.951 (1.109)	Loss_ce 0.002 (0.026)	Loss_tp 0.014 (0.064)	
+Epoch: [29][38/38]	Time 0.962 (1.118)	Loss_ce 0.003 (0.024)	Loss_tp 0.009 (0.061)	
+Epoch: [30][38/38]	Time 0.951 (1.121)	Loss_ce 0.006 (0.022)	Loss_tp 0.007 (0.062)	
+Epoch: [31][38/38]	Time 0.957 (1.101)	Loss_ce 0.001 (0.017)	Loss_tp 0.008 (0.043)	
+Epoch: [32][38/38]	Time 0.974 (1.113)	Loss_ce 0.001 (0.021)	Loss_tp 0.007 (0.049)	
+Epoch: [33][38/38]	Time 0.975 (1.118)	Loss_ce 0.001 (0.016)	Loss_tp 0.015 (0.046)	
+Epoch: [34][38/38]	Time 0.973 (1.128)	Loss_ce 0.002 (0.016)	Loss_tp 0.007 (0.044)	
+Epoch: [35][38/38]	Time 0.967 (1.117)	Loss_ce 0.002 (0.014)	Loss_tp 0.013 (0.041)	
+Epoch: [36][38/38]	Time 0.962 (1.120)	Loss_ce 0.001 (0.014)	Loss_tp 0.008 (0.035)	
+Epoch: [37][38/38]	Time 0.975 (1.133)	Loss_ce 0.001 (0.018)	Loss_tp 0.006 (0.042)	
+Epoch: [38][38/38]	Time 0.977 (1.147)	Loss_ce 0.001 (0.018)	Loss_tp 0.005 (0.045)	
+Epoch: [39][38/38]	Time 0.968 (1.121)	Loss_ce 0.001 (0.017)	Loss_tp 0.009 (0.038)	
+Epoch: [40][38/38]	Time 0.970 (1.124)	Loss_ce 0.001 (0.015)	Loss_tp 0.005 (0.038)	
+Epoch: [41][38/38]	Time 0.968 (1.137)	Loss_ce 0.001 (0.014)	Loss_tp 0.003 (0.036)	
+Epoch: [42][38/38]	Time 0.972 (1.132)	Loss_ce 0.001 (0.016)	Loss_tp 0.006 (0.036)	
+Epoch: [43][38/38]	Time 0.963 (1.137)	Loss_ce 0.001 (0.014)	Loss_tp 0.005 (0.038)	
+Epoch: [44][38/38]	Time 0.998 (1.125)	Loss_ce 0.001 (0.012)	Loss_tp 0.003 (0.036)	
+Epoch: [45][38/38]	Time 0.972 (1.115)	Loss_ce 0.001 (0.014)	Loss_tp 0.012 (0.034)	
+Epoch: [46][38/38]	Time 0.967 (1.121)	Loss_ce 0.001 (0.015)	Loss_tp 0.006 (0.040)	
+Epoch: [47][38/38]	Time 0.965 (1.115)	Loss_ce 0.001 (0.013)	Loss_tp 0.004 (0.036)	
+Epoch: [48][38/38]	Time 0.968 (1.120)	Loss_ce 0.001 (0.014)	Loss_tp 0.005 (0.036)	
+Epoch: [49][38/38]	Time 0.984 (1.132)	Loss_ce 0.001 (0.013)	Loss_tp 0.005 (0.033)	
+Epoch: [50][38/38]	Time 0.978 (1.112)	Loss_ce 0.001 (0.012)	Loss_tp 0.007 (0.032)	
+Epoch: [51][38/38]	Time 0.961 (1.129)	Loss_ce 0.001 (0.012)	Loss_tp 0.013 (0.034)	
+Epoch: [52][38/38]	Time 0.998 (1.127)	Loss_ce 0.001 (0.013)	Loss_tp 0.004 (0.034)	
+Epoch: [53][38/38]	Time 0.976 (1.111)	Loss_ce 0.001 (0.016)	Loss_tp 0.004 (0.039)	
+Epoch: [54][38/38]	Time 0.998 (1.132)	Loss_ce 0.001 (0.013)	Loss_tp 0.008 (0.035)	
+Epoch: [55][38/38]	Time 0.973 (1.142)	Loss_ce 0.001 (0.016)	Loss_tp 0.008 (0.036)	
+Epoch: [56][38/38]	Time 0.980 (1.116)	Loss_ce 0.001 (0.014)	Loss_tp 0.006 (0.034)	
+Epoch: [57][38/38]	Time 1.008 (1.113)	Loss_ce 0.001 (0.013)	Loss_tp 0.005 (0.037)	
+Epoch: [58][38/38]	Time 0.983 (1.119)	Loss_ce 0.001 (0.012)	Loss_tp 0.007 (0.032)	
+Epoch: [59][38/38]	Time 0.992 (1.110)	Loss_ce 0.001 (0.014)	Loss_tp 0.009 (0.034)	
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/cuhk03_checkpoint.pth.tar'
+****** start perform fast testing! ******
+2025-12-15 03:17:13  market1501 feature start
+2025-12-15 03:17:51  market1501 feature done
+fast testing!!!
+mAP/Rank1:	57.1/77.9
+2025-12-15 03:19:38  cuhk_sysu feature start
+2025-12-15 03:19:56  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	79.2/81.1
+2025-12-15 03:19:58  dukemtmc feature start
+2025-12-15 03:21:02  dukemtmc feature done
+fast testing!!!
+mAP/Rank1:	45.0/65.5
+2025-12-15 03:21:06  msmt17 feature start
+2025-12-15 03:33:28  msmt17 feature done
+fast testing!!!
+mAP/Rank1:	19.2/45.3
+2025-12-15 04:37:40  cuhk03 feature start
+2025-12-15 04:38:33  cuhk03 feature done
+fast testing!!!
+mAP/Rank1:	60.0/62.4
+2025-12-15 04:38:33  sense feature start
+2025-12-15 04:38:50  sense feature done
+fast testing!!!
+mAP/Rank1:	46.2/37.8
+2025-12-15 04:38:50  grid feature start
+2025-12-15 04:38:57  grid feature done
+fast testing!!!
+mAP/Rank1:	36.3/28.8
+2025-12-15 04:38:57  prid feature start
+2025-12-15 04:39:01  prid feature done
+fast testing!!!
+mAP/Rank1:	56.9/48.0
+Average mAP on Seen dataset: 52.1
+Average R1 on Seen dataset: 66.5
+market1501		cuhk_sysu		dukemtmc		msmt17		cuhk03		|Average	|
+|57.1/77.9	|79.2/81.1	|45.0/65.5	|19.2/45.3	|60.0/62.4	|52.1/66.5	|
+Average mAP on UnSeen dataset: 46.5
+Average R1 on UnSeen dataset: 38.2
+sense	grid	prid	|Average	|
+|46.2/37.8	|36.3/28.8	|56.9/48.0	|46.5/38.2	|
+52.1	66.5	46.5	38.2
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/cuhk03_checkpoint.pth.tar'
+*******combining the models with alpha: 0.5*******
+module.classifier.weight ...
+****** start perform fast testing! ******
+2025-12-15 04:39:52  market1501 feature start
+2025-12-15 04:40:54  market1501 feature done
+fast testing!!!
+mAP/Rank1:	67.5/85.7
+2025-12-15 04:43:24  cuhk_sysu feature start
+2025-12-15 04:43:44  cuhk_sysu feature done
+fast testing!!!
+mAP/Rank1:	84.3/85.6
+2025-12-15 04:43:45  dukemtmc feature start
+2025-12-15 04:44:57  dukemtmc feature done
+fast testing!!!
+mAP/Rank1:	55.4/72.0
+2025-12-15 04:45:02  msmt17 feature start
+2025-12-15 04:59:10  msmt17 feature done
+fast testing!!!
+mAP/Rank1:	26.1/53.7
+2025-12-15 06:10:40  cuhk03 feature start
+2025-12-15 06:12:01  cuhk03 feature done
+fast testing!!!
+mAP/Rank1:	42.9/44.4
+2025-12-15 06:12:01  sense feature start
+2025-12-15 06:12:19  sense feature done
+fast testing!!!
+mAP/Rank1:	51.4/43.1
+2025-12-15 06:12:20  grid feature start
+2025-12-15 06:12:26  grid feature done
+fast testing!!!
+mAP/Rank1:	44.1/34.4
+2025-12-15 06:12:26  prid feature start
+2025-12-15 06:12:30  prid feature done
+fast testing!!!
+mAP/Rank1:	64.0/54.0
+Average mAP on Seen dataset: 55.2
+Average R1 on Seen dataset: 68.3
+market1501		cuhk_sysu		dukemtmc		msmt17		cuhk03		|Average	|
+|67.5/85.7	|84.3/85.6	|55.4/72.0	|26.1/53.7	|42.9/44.4	|55.2/68.3	|
+Average mAP on UnSeen dataset: 53.2
+Average R1 on UnSeen dataset: 43.8
+sense	grid	prid	|Average	|
+|51.4/43.1	|44.1/34.4	|64.0/54.0	|53.2/43.8	|
+55.2	68.3	53.2	43.8
+finished

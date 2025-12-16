@@ -1,0 +1,104 @@
+==========
+Args:Namespace(AF_weight=1.0, MODEL='50x', absolute_delta=True, absolute_feat=False, aux_weight=4.5, batch_size=128, blur=False, config_file='config/base.yml', data_dir='/DATA2025/cjh/AAAI2025-LReID-DASK/PRID', dropout=0.5, epochs=60, epochs0=80, eval_epoch=100, evaluate=False, fisher_freeze=True, fisher_ratio=0.5, fisher_sample_num=1000, fix_EMA=0.5, global_alpha=100, groups=1, height=256, joint_test=False, l2sp_weight=0.01, logs_dir='/DATA2025/cjh/AAAI2025-LReID-DASK/output', lr=0.008, middle_test=True, milestones=[30], mobile=True, momentum=0.9, n_kernel=1, num_instances=4, optimizer='SGD', print_freq=200, random_rehearser=False, resume='', save_evaluation=False, seed=0, setting=1, test_folder=None, trans=True, warmup_step=10, weight_decay=0.0001, width=128, workers=8)
+==========
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4market |        |            |         |
+|           train           | 12936  |    751     |    6    |
+|           query           |  3368  |    750     |    6    |
+|          gallery          | 15913  |    751     |    6    |
++---------------------------+--------+------------+---------+
++--------------------------------+--------+------------+---------+
+|              set               | images | identities | cameras |
++--------------------------------+--------+------------+---------+
+| IncrementalSamples4subcuhksysu |        |            |         |
+|             train              |  4374  |    942     |    1    |
+|             query              |  2900  |    2900    |    1    |
+|            gallery             |  5447  |    2900    |    1    |
++--------------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4duke |        |            |         |
+|          train          | 16522  |    702     |    8    |
+|          query          |  2228  |    702     |    8    |
+|         gallery         | 17661  |    1110    |    8    |
++-------------------------+--------+------------+---------+
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4msmt17 |        |            |         |
+|           train           | 30248  |    1041    |    15   |
+|           query           | 11659  |    3060    |    15   |
+|          gallery          | 82161  |    3060    |    15   |
++---------------------------+--------+------------+---------+
+Checking preprocess conditions...
+imgs_labeled_dir exists: True
+imgs_detected_dir exists: True
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4cuhk03 |        |            |         |
+|           train           |  7368  |    767     |    2    |
+|           query           |  1400  |    700     |    2    |
+|          gallery          |  5328  |    700     |    2    |
++---------------------------+--------+------------+---------+
+/DATA2025/cjh/AAAI2025-LReID-DASK/PRID/SenseReID/test_gallery
++------------------------------+--------+------------+---------+
+|             set              | images | identities | cameras |
++------------------------------+--------+------------+---------+
+| IncrementalSamples4sensereid |        |            |         |
+|            train             |  4428  |    1718    |    2    |
+|            query             |  1040  |    521     |    2    |
+|           gallery            |  3388  |    1718    |    2    |
++------------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4grid |        |            |         |
+|          train          |  250   |    125     |    6    |
+|          query          |  125   |    125     |    5    |
+|         gallery         |  900   |    126     |    5    |
++-------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4prid |        |            |         |
+|          train          |  200   |    100     |    2    |
+|          query          |  100   |    100     |    1    |
+|         gallery         |  649   |    649     |    1    |
++-------------------------+--------+------------+---------+
+using resnet50 as a backbone
+===========building ResNet===========
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+param fc.weight in pre-trained model does not exist in this model.base
+param fc.bias in pre-trained model does not exist in this model.base
+using soft triplet loss for training
+####### starting training on market1501 #######
+Epoch: [0][71/71]	Time 0.533 (0.854)	Loss_ce 6.209 (6.209)	Loss_tp 3.328 (4.110)	
+Epoch: [1][71/71]	Time 0.535 (0.639)	Loss_ce 5.933 (6.071)	Loss_tp 1.752 (2.272)	
+Epoch: [2][71/71]	Time 0.535 (0.643)	Loss_ce 4.964 (5.453)	Loss_tp 0.955 (1.202)	
+Epoch: [3][71/71]	Time 0.539 (0.649)	Loss_ce 3.472 (4.062)	Loss_tp 0.870 (0.850)	
+Epoch: [4][71/71]	Time 0.543 (0.656)	Loss_ce 2.009 (2.572)	Loss_tp 0.595 (0.718)	
+Traceback (most recent call last):
+  File "continual_train.py", line 616, in <module>
+    main()
+  File "continual_train.py", line 53, in main
+    main_worker(args, cfg)
+  File "continual_train.py", line 176, in main_worker
+    model, current_fisher = train_dataset(cfg, args, all_train_sets, all_test_only_sets, set_index, model, out_channel,
+  File "continual_train.py", line 484, in train_dataset
+    trainer.train(epoch, train_loader,  optimizer, training_phase=set_index + 1,
+  File "/DATA2025/cjh/AAAI2025-LReID-DASK/reid/trainer.py", line 143, in train
+    loss.backward()
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/_tensor.py", line 488, in backward
+    torch.autograd.backward(
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/autograd/__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

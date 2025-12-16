@@ -1,0 +1,234 @@
+{
+    "os": "Linux-4.15.0-142-generic-x86_64-with-glibc2.17",
+    "python": "3.8.20",
+    "heartbeatAt": "2025-12-14T07:34:09.891140",
+    "startedAt": "2025-12-14T07:34:08.610844",
+    "docker": null,
+    "cuda": "10.0.130",
+    "args": [
+        "--mobile",
+        "--batch-size",
+        "128",
+        "--logs-dir",
+        "/DATA2025/cjh/AAAI2025-LReID-DASK/output",
+        "--data-dir",
+        "/DATA2025/cjh/AAAI2025-LReID-DASK/PRID",
+        "--dropout",
+        "0.5",
+        "--l2sp-weight",
+        "0.01"
+    ],
+    "state": "running",
+    "program": "continual_train.py",
+    "codePathLocal": "continual_train.py",
+    "codePath": "continual_train.py",
+    "host": "xmu-MRI",
+    "username": "cjh",
+    "executable": "/DATA2025/cjh/envs/IRL/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 1366.4385625,
+        "min": 1200.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1200.426,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1202.219,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1582.997,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.305,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.379,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1201.189,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1201.18,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2790.769,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1445.653,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.04,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.01,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.086,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.233,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.493,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.425,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1227.259,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1201.483,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.232,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1529.039,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1202.02,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.192,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.167,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.276,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2736.461,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1373.107,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.046,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.982,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.464,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.376,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.452,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.253,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1297.553,
+            "min": 1200.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 28.036212921142578,
+            "used": 24.5626220703125
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 6,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11811160064
+        },
+        {
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "memory_total": 11811160064
+        }
+    ],
+    "memory": {
+        "total": 125.79247665405273
+    }
+}

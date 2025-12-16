@@ -1,0 +1,241 @@
+==========
+Args:Namespace(AF_weight=1.0, MODEL='50x', absolute_delta=True, absolute_feat=False, aux_weight=4.5, batch_size=128, blur=False, config_file='config/base.yml', data_dir='/DATA2025/cjh/AAAI2025-LReID-DASK/PRID', dropout=0.5, epochs=60, epochs0=80, eval_epoch=100, evaluate=False, fix_EMA=0.5, global_alpha=100, groups=1, height=256, joint_test=False, l2sp_weight=0.01, logs_dir='/DATA2025/cjh/AAAI2025-LReID-DASK/output', lr=0.008, middle_test=False, milestones=[30], mobile=True, momentum=0.9, n_kernel=1, num_instances=4, optimizer='SGD', print_freq=200, random_rehearser=False, resume='', save_evaluation=False, seed=0, setting=1, test_folder=None, trans=True, warmup_step=10, weight_decay=0.0001, width=128, workers=8)
+==========
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4market |        |            |         |
+|           train           | 12936  |    751     |    6    |
+|           query           |  3368  |    750     |    6    |
+|          gallery          | 15913  |    751     |    6    |
++---------------------------+--------+------------+---------+
++--------------------------------+--------+------------+---------+
+|              set               | images | identities | cameras |
++--------------------------------+--------+------------+---------+
+| IncrementalSamples4subcuhksysu |        |            |         |
+|             train              |  4374  |    942     |    1    |
+|             query              |  2900  |    2900    |    1    |
+|            gallery             |  5447  |    2900    |    1    |
++--------------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4duke |        |            |         |
+|          train          | 16522  |    702     |    8    |
+|          query          |  2228  |    702     |    8    |
+|         gallery         | 17661  |    1110    |    8    |
++-------------------------+--------+------------+---------+
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4msmt17 |        |            |         |
+|           train           | 30248  |    1041    |    15   |
+|           query           | 11659  |    3060    |    15   |
+|          gallery          | 82161  |    3060    |    15   |
++---------------------------+--------+------------+---------+
+Checking preprocess conditions...
+imgs_labeled_dir exists: True
+imgs_detected_dir exists: True
++---------------------------+--------+------------+---------+
+|            set            | images | identities | cameras |
++---------------------------+--------+------------+---------+
+| IncrementalSamples4cuhk03 |        |            |         |
+|           train           |  7368  |    767     |    2    |
+|           query           |  1400  |    700     |    2    |
+|          gallery          |  5328  |    700     |    2    |
++---------------------------+--------+------------+---------+
+/DATA2025/cjh/AAAI2025-LReID-DASK/PRID/SenseReID/test_gallery
++------------------------------+--------+------------+---------+
+|             set              | images | identities | cameras |
++------------------------------+--------+------------+---------+
+| IncrementalSamples4sensereid |        |            |         |
+|            train             |  4428  |    1718    |    2    |
+|            query             |  1040  |    521     |    2    |
+|           gallery            |  3388  |    1718    |    2    |
++------------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4grid |        |            |         |
+|          train          |  250   |    125     |    6    |
+|          query          |  125   |    125     |    5    |
+|         gallery         |  900   |    126     |    5    |
++-------------------------+--------+------------+---------+
++-------------------------+--------+------------+---------+
+|           set           | images | identities | cameras |
++-------------------------+--------+------------+---------+
+| IncrementalSamples4prid |        |            |         |
+|          train          |  200   |    100     |    2    |
+|          query          |  100   |    100     |    1    |
+|         gallery         |  649   |    649     |    1    |
++-------------------------+--------+------------+---------+
+using resnet50 as a backbone
+===========building ResNet===========
+param fc.weight in pre-trained model does not exist in this model.base
+param fc.bias in pre-trained model does not exist in this model.base
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+using soft triplet loss for training
+####### starting training on market1501 #######
+Epoch: [0][71/71]	Time 0.522 (0.654)	Loss_ce 6.200 (6.208)	Loss_tp 3.254 (4.003)	
+Epoch: [1][71/71]	Time 0.528 (0.606)	Loss_ce 5.882 (6.053)	Loss_tp 1.912 (2.199)	
+Epoch: [2][71/71]	Time 0.527 (0.613)	Loss_ce 4.845 (5.377)	Loss_tp 0.913 (1.236)	
+Epoch: [3][71/71]	Time 0.529 (0.615)	Loss_ce 3.212 (3.890)	Loss_tp 0.863 (0.856)	
+Epoch: [4][71/71]	Time 0.529 (0.615)	Loss_ce 1.738 (2.325)	Loss_tp 0.557 (0.688)	
+Epoch: [5][71/71]	Time 0.530 (0.612)	Loss_ce 0.917 (1.297)	Loss_tp 0.528 (0.585)	
+Epoch: [6][71/71]	Time 0.529 (0.614)	Loss_ce 0.622 (0.752)	Loss_tp 0.446 (0.471)	
+Epoch: [7][71/71]	Time 0.529 (0.616)	Loss_ce 0.370 (0.508)	Loss_tp 0.436 (0.427)	
+Epoch: [8][71/71]	Time 0.531 (0.619)	Loss_ce 0.246 (0.363)	Loss_tp 0.280 (0.358)	
+Epoch: [9][71/71]	Time 0.531 (0.616)	Loss_ce 0.421 (0.309)	Loss_tp 0.508 (0.352)	
+Epoch: [10][71/71]	Time 0.527 (0.620)	Loss_ce 0.300 (0.245)	Loss_tp 0.471 (0.300)	
+Epoch: [11][71/71]	Time 0.532 (0.614)	Loss_ce 0.174 (0.217)	Loss_tp 0.228 (0.284)	
+Epoch: [12][71/71]	Time 0.530 (0.614)	Loss_ce 0.245 (0.177)	Loss_tp 0.464 (0.250)	
+Epoch: [13][71/71]	Time 0.529 (0.618)	Loss_ce 0.173 (0.154)	Loss_tp 0.351 (0.250)	
+Epoch: [14][71/71]	Time 0.531 (0.607)	Loss_ce 0.140 (0.144)	Loss_tp 0.275 (0.223)	
+Epoch: [15][71/71]	Time 0.531 (0.622)	Loss_ce 0.108 (0.131)	Loss_tp 0.135 (0.205)	
+Epoch: [16][71/71]	Time 0.529 (0.612)	Loss_ce 0.160 (0.103)	Loss_tp 0.182 (0.174)	
+Epoch: [17][71/71]	Time 0.529 (0.615)	Loss_ce 0.071 (0.100)	Loss_tp 0.190 (0.174)	
+Epoch: [18][71/71]	Time 0.530 (0.620)	Loss_ce 0.140 (0.088)	Loss_tp 0.270 (0.154)	
+Epoch: [19][71/71]	Time 0.530 (0.618)	Loss_ce 0.154 (0.087)	Loss_tp 0.227 (0.149)	
+Epoch: [20][71/71]	Time 0.530 (0.612)	Loss_ce 0.069 (0.082)	Loss_tp 0.101 (0.139)	
+Epoch: [21][71/71]	Time 0.531 (0.618)	Loss_ce 0.094 (0.072)	Loss_tp 0.130 (0.129)	
+Epoch: [22][71/71]	Time 0.529 (0.616)	Loss_ce 0.081 (0.079)	Loss_tp 0.164 (0.137)	
+Epoch: [23][71/71]	Time 0.530 (0.618)	Loss_ce 0.062 (0.059)	Loss_tp 0.139 (0.109)	
+Epoch: [24][71/71]	Time 0.532 (0.617)	Loss_ce 0.096 (0.061)	Loss_tp 0.164 (0.114)	
+Epoch: [25][71/71]	Time 0.530 (0.614)	Loss_ce 0.172 (0.063)	Loss_tp 0.091 (0.112)	
+Epoch: [26][71/71]	Time 0.529 (0.619)	Loss_ce 0.036 (0.057)	Loss_tp 0.075 (0.092)	
+Epoch: [27][71/71]	Time 0.529 (0.610)	Loss_ce 0.063 (0.055)	Loss_tp 0.141 (0.090)	
+Epoch: [28][71/71]	Time 0.528 (0.621)	Loss_ce 0.096 (0.052)	Loss_tp 0.118 (0.092)	
+Epoch: [29][71/71]	Time 0.529 (0.614)	Loss_ce 0.045 (0.048)	Loss_tp 0.056 (0.084)	
+Epoch: [30][71/71]	Time 0.529 (0.616)	Loss_ce 0.024 (0.040)	Loss_tp 0.030 (0.076)	
+Epoch: [31][71/71]	Time 0.531 (0.613)	Loss_ce 0.069 (0.037)	Loss_tp 0.067 (0.060)	
+Epoch: [32][71/71]	Time 0.529 (0.622)	Loss_ce 0.020 (0.033)	Loss_tp 0.034 (0.058)	
+Epoch: [33][71/71]	Time 0.530 (0.616)	Loss_ce 0.046 (0.031)	Loss_tp 0.033 (0.051)	
+Epoch: [34][71/71]	Time 0.529 (0.620)	Loss_ce 0.020 (0.033)	Loss_tp 0.038 (0.061)	
+Epoch: [35][71/71]	Time 0.530 (0.622)	Loss_ce 0.032 (0.031)	Loss_tp 0.071 (0.058)	
+Epoch: [36][71/71]	Time 0.531 (0.615)	Loss_ce 0.032 (0.030)	Loss_tp 0.035 (0.046)	
+Epoch: [37][71/71]	Time 0.532 (0.614)	Loss_ce 0.011 (0.028)	Loss_tp 0.024 (0.050)	
+Epoch: [38][71/71]	Time 0.528 (0.611)	Loss_ce 0.020 (0.027)	Loss_tp 0.093 (0.045)	
+Epoch: [39][71/71]	Time 0.530 (0.618)	Loss_ce 0.034 (0.028)	Loss_tp 0.034 (0.045)	
+Epoch: [40][71/71]	Time 0.529 (0.617)	Loss_ce 0.026 (0.025)	Loss_tp 0.053 (0.048)	
+Epoch: [41][71/71]	Time 0.531 (0.623)	Loss_ce 0.020 (0.026)	Loss_tp 0.038 (0.046)	
+Epoch: [42][71/71]	Time 0.529 (0.628)	Loss_ce 0.048 (0.028)	Loss_tp 0.040 (0.044)	
+Epoch: [43][71/71]	Time 0.529 (0.620)	Loss_ce 0.028 (0.025)	Loss_tp 0.020 (0.038)	
+Epoch: [44][71/71]	Time 0.532 (0.610)	Loss_ce 0.008 (0.025)	Loss_tp 0.009 (0.041)	
+Epoch: [45][71/71]	Time 0.529 (0.607)	Loss_ce 0.026 (0.025)	Loss_tp 0.128 (0.048)	
+Epoch: [46][71/71]	Time 0.531 (0.610)	Loss_ce 0.033 (0.027)	Loss_tp 0.029 (0.043)	
+Epoch: [47][71/71]	Time 0.529 (0.617)	Loss_ce 0.059 (0.024)	Loss_tp 0.089 (0.038)	
+Epoch: [48][71/71]	Time 0.530 (0.615)	Loss_ce 0.019 (0.024)	Loss_tp 0.050 (0.044)	
+Epoch: [49][71/71]	Time 0.530 (0.619)	Loss_ce 0.014 (0.024)	Loss_tp 0.031 (0.034)	
+Epoch: [50][71/71]	Time 0.528 (0.615)	Loss_ce 0.012 (0.023)	Loss_tp 0.026 (0.039)	
+Epoch: [51][71/71]	Time 0.529 (0.612)	Loss_ce 0.006 (0.022)	Loss_tp 0.009 (0.043)	
+Epoch: [52][71/71]	Time 0.528 (0.622)	Loss_ce 0.026 (0.026)	Loss_tp 0.065 (0.043)	
+Epoch: [53][71/71]	Time 0.530 (0.611)	Loss_ce 0.035 (0.023)	Loss_tp 0.032 (0.038)	
+Epoch: [54][71/71]	Time 0.529 (0.614)	Loss_ce 0.028 (0.021)	Loss_tp 0.015 (0.033)	
+Epoch: [55][71/71]	Time 0.531 (0.616)	Loss_ce 0.023 (0.021)	Loss_tp 0.060 (0.036)	
+Epoch: [56][71/71]	Time 0.529 (0.612)	Loss_ce 0.036 (0.019)	Loss_tp 0.031 (0.032)	
+Epoch: [57][71/71]	Time 0.529 (0.620)	Loss_ce 0.010 (0.022)	Loss_tp 0.029 (0.033)	
+Epoch: [58][71/71]	Time 0.529 (0.615)	Loss_ce 0.029 (0.024)	Loss_tp 0.043 (0.039)	
+Epoch: [59][71/71]	Time 0.528 (0.617)	Loss_ce 0.034 (0.021)	Loss_tp 0.062 (0.038)	
+Epoch: [60][71/71]	Time 0.527 (0.626)	Loss_ce 0.069 (0.022)	Loss_tp 0.138 (0.036)	
+Epoch: [61][71/71]	Time 0.530 (0.618)	Loss_ce 0.017 (0.020)	Loss_tp 0.039 (0.032)	
+Epoch: [62][71/71]	Time 0.529 (0.622)	Loss_ce 0.024 (0.020)	Loss_tp 0.019 (0.033)	
+Epoch: [63][71/71]	Time 0.528 (0.616)	Loss_ce 0.020 (0.023)	Loss_tp 0.011 (0.035)	
+Epoch: [64][71/71]	Time 0.529 (0.617)	Loss_ce 0.014 (0.022)	Loss_tp 0.037 (0.037)	
+Epoch: [65][71/71]	Time 0.530 (0.617)	Loss_ce 0.039 (0.022)	Loss_tp 0.042 (0.033)	
+Epoch: [66][71/71]	Time 0.530 (0.618)	Loss_ce 0.043 (0.019)	Loss_tp 0.023 (0.033)	
+Epoch: [67][71/71]	Time 0.532 (0.619)	Loss_ce 0.027 (0.020)	Loss_tp 0.062 (0.035)	
+Epoch: [68][71/71]	Time 0.528 (0.621)	Loss_ce 0.014 (0.020)	Loss_tp 0.016 (0.034)	
+Epoch: [69][71/71]	Time 0.530 (0.613)	Loss_ce 0.018 (0.021)	Loss_tp 0.009 (0.035)	
+Epoch: [70][71/71]	Time 0.531 (0.619)	Loss_ce 0.007 (0.018)	Loss_tp 0.008 (0.026)	
+Epoch: [71][71/71]	Time 0.531 (0.618)	Loss_ce 0.016 (0.018)	Loss_tp 0.032 (0.024)	
+Epoch: [72][71/71]	Time 0.530 (0.613)	Loss_ce 0.033 (0.023)	Loss_tp 0.043 (0.036)	
+Epoch: [73][71/71]	Time 0.531 (0.621)	Loss_ce 0.031 (0.022)	Loss_tp 0.041 (0.035)	
+Epoch: [74][71/71]	Time 0.529 (0.615)	Loss_ce 0.012 (0.020)	Loss_tp 0.037 (0.032)	
+Epoch: [75][71/71]	Time 0.529 (0.620)	Loss_ce 0.025 (0.019)	Loss_tp 0.035 (0.029)	
+Epoch: [76][71/71]	Time 0.530 (0.611)	Loss_ce 0.016 (0.018)	Loss_tp 0.011 (0.031)	
+Epoch: [77][71/71]	Time 0.529 (0.622)	Loss_ce 0.015 (0.020)	Loss_tp 0.029 (0.031)	
+Epoch: [78][71/71]	Time 0.528 (0.617)	Loss_ce 0.020 (0.019)	Loss_tp 0.006 (0.027)	
+Epoch: [79][71/71]	Time 0.531 (0.615)	Loss_ce 0.017 (0.019)	Loss_tp 0.014 (0.029)	
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/market1501_checkpoint.pth.tar'
+****** start perform fast testing! ******
+2025-12-14 16:35:29  market1501 feature start
+2025-12-14 16:36:08  market1501 feature done
+fast testing!!!
+mAP/Rank1:	77.5/90.6
+2025-12-14 16:36:48  sense feature start
+2025-12-14 16:37:06  sense feature done
+fast testing!!!
+mAP/Rank1:	32.2/25.2
+2025-12-14 16:37:07  grid feature start
+2025-12-14 16:37:12  grid feature done
+fast testing!!!
+mAP/Rank1:	20.4/12.0
+2025-12-14 16:37:12  prid feature start
+2025-12-14 16:37:17  prid feature done
+fast testing!!!
+mAP/Rank1:	30.2/22.0
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=MobileNet_V3_Small_Weights.IMAGENET1K_V1`. You can also use `weights=MobileNet_V3_Small_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Average mAP on Seen dataset: 77.5
+Average R1 on Seen dataset: 90.6
+market1501		|Average	|
+|77.5/90.6	|77.5/90.6	|
+Average mAP on UnSeen dataset: 27.6
+Average R1 on UnSeen dataset: 19.7
+sense	grid	prid	|Average	|
+|32.2/25.2	|20.4/12.0	|30.2/22.0	|27.6/19.7	|
+77.5	90.6	27.6	19.7
+=> saved checkpoint '/DATA2025/cjh/AAAI2025-LReID-DASK/output/market1501_checkpoint.pth.tar'
+Param count for AKPNet's initialized parameters: 1105348
+=> Loaded checkpoint 'rehearser_pretrain_learn_kernel_c1-g1_mobilenet-v3/market1501_rehearser_49.pth.tar'
+using soft triplet loss for training
+####### starting training on cuhk_sysu #######
+Traceback (most recent call last):
+  File "continual_train.py", line 420, in <module>
+    main()
+  File "continual_train.py", line 50, in main
+    main_worker(args, cfg)
+  File "continual_train.py", line 170, in main_worker
+    model = train_dataset(cfg, args, all_train_sets, all_test_only_sets, set_index, model, out_channel,
+  File "continual_train.py", line 298, in train_dataset
+    trainer.train(epoch, train_loader,  optimizer, training_phase=set_index + 1,
+  File "/DATA2025/cjh/AAAI2025-LReID-DASK/reid/trainer.py", line 106, in train
+    s_features, bn_feat, cls_outputs, feat_final_layer = self.model(s_inputs)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 169, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/DATA2025/cjh/AAAI2025-LReID-DASK/reid/models/resnet.py", line 89, in forward
+    x = self.base(x)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/DATA2025/cjh/AAAI2025-LReID-DASK/reid/models/backbones/resnet.py", line 223, in forward
+    x = self.layer1(x)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/DATA2025/cjh/AAAI2025-LReID-DASK/reid/models/backbones/resnet.py", line 178, in forward
+    residual = self.downsample(x)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/DATA2025/cjh/envs/IRL/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 459, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 256.00 MiB (GPU 0; 10.75 GiB total capacity; 9.97 GiB already allocated; 254.50 MiB free; 9.98 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

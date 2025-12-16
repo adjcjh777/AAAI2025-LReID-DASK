@@ -1,0 +1,1 @@
+{"loss/ce": 0.03123084269464016, "loss/tr": 0.09816861897706985, "loss/af": 0, "time/batch_time": 0.536280632019043, "lr": 0.0008, "epoch": 33, "iter": 47, "training_phase": 1, "_timestamp": 1765697613.2421896, "_runtime": 1598.8064637184143, "_step": 2390, "_wandb": {"runtime": 1597}}

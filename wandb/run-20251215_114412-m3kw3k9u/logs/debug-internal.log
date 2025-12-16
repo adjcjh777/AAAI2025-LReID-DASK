@@ -1,0 +1,172 @@
+2025-12-15 11:44:12,028 INFO    StreamThr :6915 [internal.py:wandb_internal():86] W&B internal server running at pid: 6915, started at: 2025-12-15 11:44:12.027594
+2025-12-15 11:44:12,030 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: status
+2025-12-15 11:44:12,033 INFO    WriterThread:6915 [datastore.py:open_for_write():85] open: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/run-m3kw3k9u.wandb
+2025-12-15 11:44:12,037 DEBUG   SenderThread:6915 [sender.py:send():380] send: header
+2025-12-15 11:44:12,037 DEBUG   SenderThread:6915 [sender.py:send():380] send: run
+2025-12-15 11:44:12,871 INFO    SenderThread:6915 [dir_watcher.py:__init__():211] watching files in: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files
+2025-12-15 11:44:12,871 INFO    SenderThread:6915 [sender.py:_start_run_threads():1122] run started: m3kw3k9u with start time 1765770252.027344
+2025-12-15 11:44:12,889 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: check_version
+2025-12-15 11:44:12,889 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: check_version
+2025-12-15 11:44:13,345 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: run_start
+2025-12-15 11:44:13,360 DEBUG   HandlerThread:6915 [system_info.py:__init__():32] System info init
+2025-12-15 11:44:13,360 DEBUG   HandlerThread:6915 [system_info.py:__init__():47] System info init done
+2025-12-15 11:44:13,360 INFO    HandlerThread:6915 [system_monitor.py:start():194] Starting system monitor
+2025-12-15 11:44:13,360 INFO    SystemMonitor:6915 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-12-15 11:44:13,360 INFO    HandlerThread:6915 [system_monitor.py:probe():214] Collecting system info
+2025-12-15 11:44:13,361 INFO    SystemMonitor:6915 [interfaces.py:start():190] Started cpu monitoring
+2025-12-15 11:44:13,362 INFO    SystemMonitor:6915 [interfaces.py:start():190] Started disk monitoring
+2025-12-15 11:44:13,364 INFO    SystemMonitor:6915 [interfaces.py:start():190] Started gpu monitoring
+2025-12-15 11:44:13,365 INFO    SystemMonitor:6915 [interfaces.py:start():190] Started memory monitoring
+2025-12-15 11:44:13,366 INFO    SystemMonitor:6915 [interfaces.py:start():190] Started network monitoring
+2025-12-15 11:44:13,416 DEBUG   HandlerThread:6915 [system_info.py:probe():196] Probing system
+2025-12-15 11:44:13,416 DEBUG   HandlerThread:6915 [system_info.py:probe():244] Probing system done
+2025-12-15 11:44:13,416 DEBUG   HandlerThread:6915 [system_monitor.py:probe():223] {'os': 'Linux-4.15.0-142-generic-x86_64-with-glibc2.17', 'python': '3.8.20', 'heartbeatAt': '2025-12-15T03:44:13.416602', 'startedAt': '2025-12-15T03:44:12.018518', 'docker': None, 'cuda': '10.0.130', 'args': ('--mobile', '--batch-size', '64', '--logs-dir', '/DATA2025/cjh/AAAI2025-LReID-DASK/output', '--data-dir', '/DATA2025/cjh/AAAI2025-LReID-DASK/PRID', '--dropout', '0.5', '--l2sp-weight', '0.01', '--middle_test', '--fisher-freeze', '--fisher-ratio', '0.5', '--fisher-sample-num', '1000', '--setting', '1'), 'state': 'running', 'program': 'continual_train.py', 'codePathLocal': 'continual_train.py', 'codePath': 'continual_train.py', 'host': 'xmu-MRI', 'username': 'cjh', 'executable': '/DATA2025/cjh/envs/IRL/bin/python', 'cpu_count': 16, 'cpu_count_logical': 32, 'cpu_freq': {'current': 1558.5658437499994, 'min': 1200.0, 'max': 3000.0}, 'cpu_freq_per_core': [{'current': 1200.456, 'min': 1200.0, 'max': 3000.0}, {'current': 2631.253, 'min': 1200.0, 'max': 3000.0}, {'current': 2751.996, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.956, 'min': 1200.0, 'max': 3000.0}, {'current': 2755.368, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.726, 'min': 1200.0, 'max': 3000.0}, {'current': 1318.278, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.605, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.248, 'min': 1200.0, 'max': 3000.0}, {'current': 1268.282, 'min': 1200.0, 'max': 3000.0}, {'current': 1444.713, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.009, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.122, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.42, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.246, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.149, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.708, 'min': 1200.0, 'max': 3000.0}, {'current': 1964.687, 'min': 1200.0, 'max': 3000.0}, {'current': 2735.21, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.85, 'min': 1200.0, 'max': 3000.0}, {'current': 2491.73, 'min': 1200.0, 'max': 3000.0}, {'current': 1201.413, 'min': 1200.0, 'max': 3000.0}, {'current': 1367.583, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.513, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.121, 'min': 1200.0, 'max': 3000.0}, {'current': 1277.63, 'min': 1200.0, 'max': 3000.0}, {'current': 1470.637, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.001, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.33, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.475, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.371, 'min': 1200.0, 'max': 3000.0}, {'current': 1200.01, 'min': 1200.0, 'max': 3000.0}], 'disk': {'/': {'total': 28.036212921142578, 'used': 24.56397247314453}}, 'gpu': 'NVIDIA GeForce RTX 4090', 'gpu_count': 6, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}, {'name': 'NVIDIA GeForce RTX 2080 Ti', 'memory_total': 11811160064}], 'memory': {'total': 125.79247665405273}}
+2025-12-15 11:44:13,417 INFO    HandlerThread:6915 [system_monitor.py:probe():224] Finished collecting system info
+2025-12-15 11:44:13,417 INFO    HandlerThread:6915 [system_monitor.py:probe():227] Publishing system info
+2025-12-15 11:44:13,417 DEBUG   HandlerThread:6915 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2025-12-15 11:44:13,417 DEBUG   HandlerThread:6915 [system_info.py:_save_pip():68] Saving pip packages done
+2025-12-15 11:44:13,417 DEBUG   HandlerThread:6915 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2025-12-15 11:44:13,875 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_created():271] file/dir created: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/requirements.txt
+2025-12-15 11:44:13,876 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_created():271] file/dir created: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/conda-environment.yaml
+2025-12-15 11:44:16,473 DEBUG   HandlerThread:6915 [system_info.py:_save_conda():87] Saving conda packages done
+2025-12-15 11:44:16,475 INFO    HandlerThread:6915 [system_monitor.py:probe():229] Finished publishing system info
+2025-12-15 11:44:16,486 DEBUG   SenderThread:6915 [sender.py:send():380] send: files
+2025-12-15 11:44:16,487 INFO    SenderThread:6915 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2025-12-15 11:44:16,499 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: stop_status
+2025-12-15 11:44:16,499 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: stop_status
+2025-12-15 11:44:16,504 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: internal_messages
+2025-12-15 11:44:16,873 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_modified():288] file/dir modified: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/conda-environment.yaml
+2025-12-15 11:44:16,874 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_created():271] file/dir created: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/wandb-metadata.json
+2025-12-15 11:44:16,937 DEBUG   SenderThread:6915 [sender.py:send():380] send: telemetry
+2025-12-15 11:44:17,713 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: status_report
+2025-12-15 11:44:17,760 INFO    wandb-upload_0:6915 [upload_job.py:push():131] Uploaded file /tmp/tmp7t6s0z8rwandb/ki8pkxag-wandb-metadata.json
+2025-12-15 11:44:17,874 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_created():271] file/dir created: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/output.log
+2025-12-15 11:44:19,875 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_modified():288] file/dir modified: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/output.log
+2025-12-15 11:44:21,876 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_modified():288] file/dir modified: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/output.log
+2025-12-15 11:44:23,589 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: status_report
+2025-12-15 11:44:24,604 DEBUG   SenderThread:6915 [sender.py:send():380] send: telemetry
+2025-12-15 11:44:24,605 DEBUG   SenderThread:6915 [sender.py:send():380] send: telemetry
+2025-12-15 11:44:27,879 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_modified():288] file/dir modified: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/output.log
+2025-12-15 11:44:28,901 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: status_report
+2025-12-15 11:44:31,500 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: stop_status
+2025-12-15 11:44:31,501 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: internal_messages
+2025-12-15 11:44:31,502 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: stop_status
+2025-12-15 11:44:33,281 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: partial_history
+2025-12-15 11:44:33,283 DEBUG   SenderThread:6915 [sender.py:send():380] send: history
+2025-12-15 11:44:33,284 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: summary_record
+2025-12-15 11:44:33,287 INFO    SenderThread:6915 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2025-12-15 11:44:33,349 DEBUG   SenderThread:6915 [sender.py:send():380] send: exit
+2025-12-15 11:44:33,350 INFO    SenderThread:6915 [sender.py:send_exit():585] handling exit code: 1
+2025-12-15 11:44:33,350 INFO    SenderThread:6915 [sender.py:send_exit():587] handling runtime: 20
+2025-12-15 11:44:33,351 INFO    SenderThread:6915 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2025-12-15 11:44:33,351 INFO    SenderThread:6915 [sender.py:send_exit():593] send defer
+2025-12-15 11:44:33,352 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:33,352 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 0
+2025-12-15 11:44:33,352 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:33,352 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 0
+2025-12-15 11:44:33,352 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 1
+2025-12-15 11:44:33,353 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:33,353 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 1
+2025-12-15 11:44:33,353 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:33,353 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 1
+2025-12-15 11:44:33,354 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 2
+2025-12-15 11:44:33,354 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:33,354 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 2
+2025-12-15 11:44:33,354 INFO    HandlerThread:6915 [system_monitor.py:finish():203] Stopping system monitor
+2025-12-15 11:44:33,354 DEBUG   SystemMonitor:6915 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-12-15 11:44:33,355 INFO    HandlerThread:6915 [interfaces.py:finish():202] Joined cpu monitor
+2025-12-15 11:44:33,355 DEBUG   SystemMonitor:6915 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-12-15 11:44:33,356 INFO    HandlerThread:6915 [interfaces.py:finish():202] Joined disk monitor
+2025-12-15 11:44:33,356 DEBUG   SystemMonitor:6915 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-12-15 11:44:33,882 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_created():271] file/dir created: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/wandb-summary.json
+2025-12-15 11:44:34,108 INFO    HandlerThread:6915 [interfaces.py:finish():202] Joined gpu monitor
+2025-12-15 11:44:34,108 INFO    HandlerThread:6915 [interfaces.py:finish():202] Joined memory monitor
+2025-12-15 11:44:34,109 INFO    HandlerThread:6915 [interfaces.py:finish():202] Joined network monitor
+2025-12-15 11:44:34,110 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:34,110 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 2
+2025-12-15 11:44:34,110 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 3
+2025-12-15 11:44:34,110 DEBUG   SenderThread:6915 [sender.py:send():380] send: stats
+2025-12-15 11:44:34,110 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:34,111 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 3
+2025-12-15 11:44:34,112 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: status_report
+2025-12-15 11:44:34,112 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:34,112 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 3
+2025-12-15 11:44:34,112 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 4
+2025-12-15 11:44:34,113 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:34,113 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 4
+2025-12-15 11:44:34,113 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:34,113 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 4
+2025-12-15 11:44:34,113 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 5
+2025-12-15 11:44:34,114 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:34,114 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 5
+2025-12-15 11:44:34,115 DEBUG   SenderThread:6915 [sender.py:send():380] send: summary
+2025-12-15 11:44:34,115 INFO    SenderThread:6915 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2025-12-15 11:44:34,116 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:34,116 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 5
+2025-12-15 11:44:34,116 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 6
+2025-12-15 11:44:34,116 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:34,116 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 6
+2025-12-15 11:44:34,117 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:34,117 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 6
+2025-12-15 11:44:34,122 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: status_report
+2025-12-15 11:44:34,350 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: poll_exit
+2025-12-15 11:44:34,438 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 7
+2025-12-15 11:44:34,438 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: poll_exit
+2025-12-15 11:44:34,438 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:34,439 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 7
+2025-12-15 11:44:34,439 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:34,439 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 7
+2025-12-15 11:44:34,882 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_modified():288] file/dir modified: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/wandb-summary.json
+2025-12-15 11:44:34,883 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_modified():288] file/dir modified: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/config.yaml
+2025-12-15 11:44:35,014 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 8
+2025-12-15 11:44:35,015 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:35,015 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 8
+2025-12-15 11:44:35,015 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:35,016 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 8
+2025-12-15 11:44:35,016 INFO    SenderThread:6915 [job_builder.py:build():281] Attempting to build job artifact
+2025-12-15 11:44:35,017 INFO    SenderThread:6915 [job_builder.py:_get_source_type():404] no source found
+2025-12-15 11:44:35,017 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 9
+2025-12-15 11:44:35,017 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:35,017 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 9
+2025-12-15 11:44:35,018 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:35,018 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 9
+2025-12-15 11:44:35,018 INFO    SenderThread:6915 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-12-15 11:44:35,351 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: poll_exit
+2025-12-15 11:44:35,883 INFO    Thread-12 :6915 [dir_watcher.py:_on_file_modified():288] file/dir modified: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/output.log
+2025-12-15 11:44:35,884 INFO    SenderThread:6915 [dir_watcher.py:finish():388] scan: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files
+2025-12-15 11:44:35,884 INFO    SenderThread:6915 [dir_watcher.py:finish():402] scan save: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/wandb-summary.json wandb-summary.json
+2025-12-15 11:44:35,885 INFO    SenderThread:6915 [dir_watcher.py:finish():402] scan save: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/requirements.txt requirements.txt
+2025-12-15 11:44:35,885 INFO    SenderThread:6915 [dir_watcher.py:finish():402] scan save: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/config.yaml config.yaml
+2025-12-15 11:44:35,896 INFO    SenderThread:6915 [dir_watcher.py:finish():402] scan save: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/conda-environment.yaml conda-environment.yaml
+2025-12-15 11:44:35,896 INFO    SenderThread:6915 [dir_watcher.py:finish():402] scan save: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/wandb-metadata.json wandb-metadata.json
+2025-12-15 11:44:35,896 INFO    SenderThread:6915 [dir_watcher.py:finish():402] scan save: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/output.log output.log
+2025-12-15 11:44:35,907 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 10
+2025-12-15 11:44:35,907 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: poll_exit
+2025-12-15 11:44:35,908 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:35,908 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 10
+2025-12-15 11:44:35,914 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:35,914 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 10
+2025-12-15 11:44:35,914 INFO    SenderThread:6915 [file_pusher.py:finish():175] shutting down file pusher
+2025-12-15 11:44:36,352 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: poll_exit
+2025-12-15 11:44:36,353 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: poll_exit
+2025-12-15 11:44:36,508 INFO    wandb-upload_0:6915 [upload_job.py:push():131] Uploaded file /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/wandb-summary.json
+2025-12-15 11:44:36,977 INFO    wandb-upload_1:6915 [upload_job.py:push():131] Uploaded file /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/requirements.txt
+2025-12-15 11:44:36,994 INFO    wandb-upload_4:6915 [upload_job.py:push():131] Uploaded file /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/output.log
+2025-12-15 11:44:37,012 INFO    wandb-upload_3:6915 [upload_job.py:push():131] Uploaded file /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/conda-environment.yaml
+2025-12-15 11:44:37,042 INFO    wandb-upload_2:6915 [upload_job.py:push():131] Uploaded file /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/files/config.yaml
+2025-12-15 11:44:37,056 WARNING StreamThr :6915 [internal.py:is_dead():414] Internal process exiting, parent pid 6377 disappeared
+2025-12-15 11:44:37,056 ERROR   StreamThr :6915 [internal.py:wandb_internal():152] Internal process shutdown.
+2025-12-15 11:44:37,242 INFO    Thread-11 :6915 [sender.py:transition_state():613] send defer: 11
+2025-12-15 11:44:37,243 DEBUG   HandlerThread:6915 [handler.py:handle_request():146] handle_request: defer
+2025-12-15 11:44:37,243 INFO    HandlerThread:6915 [handler.py:handle_request_defer():172] handle defer: 11
+2025-12-15 11:44:37,243 INFO    HandlerThread:6915 [handler.py:finish():866] shutting down handler
+2025-12-15 11:44:37,244 INFO    WriterThread:6915 [datastore.py:close():294] close: /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251215_114412-m3kw3k9u/run-m3kw3k9u.wandb
+2025-12-15 11:44:37,244 DEBUG   SenderThread:6915 [sender.py:send_request():407] send_request: defer
+2025-12-15 11:44:37,244 INFO    SenderThread:6915 [sender.py:send_request_defer():609] handle sender defer: 11
+2025-12-15 11:44:37,244 INFO    SenderThread:6915 [file_pusher.py:join():181] waiting for file pusher
+2025-12-15 11:44:37,244 INFO    SenderThread:6915 [sender.py:transition_state():613] send defer: 12
+2025-12-15 11:44:37,245 INFO    SenderThread:6915 [sender.py:finish():1534] shutting down sender
+2025-12-15 11:44:37,245 INFO    SenderThread:6915 [file_pusher.py:finish():175] shutting down file pusher
+2025-12-15 11:44:37,245 INFO    SenderThread:6915 [file_pusher.py:join():181] waiting for file pusher
+2025-12-15 11:44:37,245 INFO    SenderThread:6915 [file_stream.py:finish():595] file stream finish called
+2025-12-15 11:44:37,546 INFO    SenderThread:6915 [file_stream.py:finish():599] file stream finish is done

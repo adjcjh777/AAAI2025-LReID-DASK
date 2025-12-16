@@ -1,0 +1,28 @@
+2025-12-14 15:35:54,879 INFO    MainThread:3391 [wandb_setup.py:_flush():76] Current SDK version is 0.15.12
+2025-12-14 15:35:54,879 INFO    MainThread:3391 [wandb_setup.py:_flush():76] Configure stats pid to 3391
+2025-12-14 15:35:54,879 INFO    MainThread:3391 [wandb_setup.py:_flush():76] Loading settings from /home/cjh/.config/wandb/settings
+2025-12-14 15:35:54,879 INFO    MainThread:3391 [wandb_setup.py:_flush():76] Loading settings from /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/settings
+2025-12-14 15:35:54,879 INFO    MainThread:3391 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-12-14 15:35:54,879 INFO    MainThread:3391 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-12-14 15:35:54,880 INFO    MainThread:3391 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'continual_train.py', 'program_abspath': '/DATA2025/cjh/AAAI2025-LReID-DASK/continual_train.py', 'program': 'continual_train.py'}
+2025-12-14 15:35:54,880 INFO    MainThread:3391 [wandb_init.py:_log_setup():528] Logging user logs to /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251214_153554-13opnqne/logs/debug.log
+2025-12-14 15:35:54,880 INFO    MainThread:3391 [wandb_init.py:_log_setup():529] Logging internal logs to /DATA2025/cjh/AAAI2025-LReID-DASK/wandb/run-20251214_153554-13opnqne/logs/debug-internal.log
+2025-12-14 15:35:54,880 INFO    MainThread:3391 [wandb_init.py:init():568] calling init triggers
+2025-12-14 15:35:54,880 INFO    MainThread:3391 [wandb_init.py:init():575] wandb.init called with sweep_config: {}
+config: {'batch_size': 128, 'workers': 8, 'height': 256, 'width': 128, 'num_instances': 4, 'MODEL': '50x', 'optimizer': 'SGD', 'lr': 0.008, 'momentum': 0.9, 'weight_decay': 0.0001, 'warmup_step': 10, 'milestones': [30], 'resume': '', 'evaluate': False, 'epochs0': 80, 'epochs': 60, 'eval_epoch': 100, 'seed': 0, 'print_freq': 200, 'data_dir': '/DATA2025/cjh/AAAI2025-LReID-DASK/PRID', 'logs_dir': '/DATA2025/cjh/AAAI2025-LReID-DASK/output', 'config_file': 'config/base.yml', 'test_folder': None, 'setting': 1, 'middle_test': False, 'AF_weight': 1.0, 'fix_EMA': 0.5, 'global_alpha': 100, 'absolute_feat': False, 'save_evaluation': False, 'absolute_delta': True, 'trans': True, 'random_rehearser': False, 'blur': False, 'n_kernel': 1, 'groups': 1, 'joint_test': False, 'mobile': True, 'aux_weight': 4.5, 'dropout': 0.5, 'l2sp_weight': 0.01}
+2025-12-14 15:35:54,880 INFO    MainThread:3391 [wandb_init.py:init():618] starting backend
+2025-12-14 15:35:54,880 INFO    MainThread:3391 [wandb_init.py:init():622] setting up manager
+2025-12-14 15:35:54,882 INFO    MainThread:3391 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-12-14 15:35:54,883 INFO    MainThread:3391 [wandb_init.py:init():628] backend started and connected
+2025-12-14 15:35:54,889 INFO    MainThread:3391 [wandb_init.py:init():720] updated telemetry
+2025-12-14 15:35:54,889 INFO    MainThread:3391 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2025-12-14 15:35:55,559 INFO    MainThread:3391 [wandb_run.py:_on_init():2220] communicating current version
+2025-12-14 15:35:56,019 INFO    MainThread:3391 [wandb_run.py:_on_init():2229] got version response upgrade_message: "wandb version 0.23.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-12-14 15:35:56,019 INFO    MainThread:3391 [wandb_init.py:init():804] starting run threads in backend
+2025-12-14 15:35:59,243 INFO    MainThread:3391 [wandb_run.py:_console_start():2199] atexit reg
+2025-12-14 15:35:59,244 INFO    MainThread:3391 [wandb_run.py:_redirect():2054] redirect: wrap_raw
+2025-12-14 15:35:59,244 INFO    MainThread:3391 [wandb_run.py:_redirect():2119] Wrapping output streams.
+2025-12-14 15:35:59,244 INFO    MainThread:3391 [wandb_run.py:_redirect():2144] Redirects installed.
+2025-12-14 15:35:59,246 INFO    MainThread:3391 [wandb_init.py:init():845] run started, returning control to user process
+2025-12-14 16:37:43,701 WARNING MsgRouterThr:3391 [router.py:message_loop():77] message_loop has been closed
