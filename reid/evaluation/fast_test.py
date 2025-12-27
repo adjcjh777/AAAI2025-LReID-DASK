@@ -40,9 +40,13 @@ def fast_eval(features,labels, cameras, args):
         # query_features=torch.stack(query_features)
         # gallery_features=torch.stack(gallery_features)
 
-        # distance_matrix = compute_distance_matrix(query_features, gallery_features, 'euclidean')
-        distance_matrix=euclidean_squared_distance(query_features, gallery_features)
-        distance_matrix = distance_matrix.data.cpu().numpy()
+        if hasattr(args, 're_ranking') and args.re_ranking:
+            # print("Using k-reciprocal re-ranking...")
+            from reid.evaluation.re_ranking import re_ranking
+            distance_matrix = re_ranking(query_features, gallery_features, k1=20, k2=6, lambda_value=0.3)
+        else:
+            distance_matrix=euclidean_squared_distance(query_features, gallery_features)
+            distance_matrix = distance_matrix.data.cpu().numpy()
         use_cython=False if args.save_evaluation else True
         try:
             save_dir=args.logs_dir
@@ -88,8 +92,14 @@ def fast_test_p_s(model, all_train_sets, all_test_only_sets,set_index, args, log
         query_features = _query_features_meter.get_val()
         gallery_features = _gallery_features_meter.get_val()
 
-        distance_matrix = compute_distance_matrix(query_features, gallery_features, 'euclidean')
-        distance_matrix = distance_matrix.data.cpu().numpy()
+        if hasattr(args, 're_ranking') and args.re_ranking:
+            print("Using k-reciprocal re-ranking...")
+            from reid.evaluation.re_ranking import re_ranking
+            distance_matrix = re_ranking(query_features, gallery_features, k1=20, k2=6, lambda_value=0.3)
+        else:
+            distance_matrix = compute_distance_matrix(query_features, gallery_features, 'euclidean')
+            distance_matrix = distance_matrix.data.cpu().numpy()
+        
         use_cython=False if args.save_evaluation else True
         try:
             save_dir=args.logs_dir

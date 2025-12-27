@@ -215,10 +215,10 @@ def main_worker(args, cfg):
                         fisher_accum[n] = p
 
         if set_index>0:
-            best_alpha = get_adaptive_alpha(args, model, model_old, all_train_sets, set_index)
-            if args.fix_EMA>=0:
-                best_alpha=args.fix_EMA
-            model = linear_combination(args, model, model_old, best_alpha)   
+            # best_alpha = get_adaptive_alpha(args, model, model_old, all_train_sets, set_index)
+            # if args.fix_EMA>=0:
+            #     best_alpha=args.fix_EMA
+            # model = linear_combination(args, model, model_old, best_alpha)   
             fast_test_p_s(model, all_train_sets, all_test_only_sets, set_index=set_index, logger=logger_res,
                       args=args,writer=writer)
     print('finished')
@@ -477,6 +477,11 @@ def train_dataset(cfg, args, all_train_sets, all_test_only_sets, set_index, mode
     
 
     print('####### starting training on {} #######'.format(name))
+    
+    # Initialize EMA model
+    model_ema = copy.deepcopy(model)
+    model_ema.eval()
+
     for epoch in range(0, Epochs):
         if args.random_rehearser and set_index>0:
             rehearser= random.choice(rehearser_list)
@@ -488,6 +493,15 @@ def train_dataset(cfg, args, all_train_sets, all_test_only_sets, set_index, mode
                       train_iters=len(train_loader), add_num=add_num, old_model=old_model,rehearser=rehearser
                       )
         lr_scheduler.step()       
+
+        # Dynamic EMA Update
+        # Lambda increases with epoch: Early -> small lambda (fast adapt), Late -> large lambda (stability)
+        # Range: 0.1 to 0.95
+        lambda_ema = 0.1 + (0.95 - 0.1) * (epoch / Epochs)
+        
+        # Update EMA model
+        for param_q, param_k in zip(model.parameters(), model_ema.parameters()):
+            param_k.data = param_k.data * lambda_ema + param_q.data * (1. - lambda_ema)
        
 
         if ((epoch + 1) % args.eval_epoch == 0 or epoch+1==Epochs):
@@ -514,9 +528,9 @@ def train_dataset(cfg, args, all_train_sets, all_test_only_sets, set_index, mode
     # Compute new Fisher
     curr_fisher = {}
     if args.fisher_freeze:
-        curr_fisher = compute_fisher_matrix(model, init_loader, num_samples=args.fisher_sample_num)
+        curr_fisher = compute_fisher_matrix(model_ema, init_loader, num_samples=args.fisher_sample_num)
 
-    return model, curr_fisher 
+    return model_ema, curr_fisher 
 
 
 def linear_combination(args, model, model_old, alpha, model_old_id=-1):
@@ -611,6 +625,7 @@ if __name__ == '__main__':
     parser.add_argument('--aux_weight', default=4.5, type=float, help="the loss weight of rehearsed data, e.g. β in the paper")
     parser.add_argument('--dropout', default=0.5, type=float, help="dropout probability")
     parser.add_argument('--l2sp-weight', default=0.0, type=float, help="L2-SP regularization weight")
+    parser.add_argument('--re-ranking', action='store_true', help="Enable k-reciprocal re-ranking for testing")
     
     # Fisher Freezing 
     parser.add_argument('--fisher-freeze', action='store_true', help="Enable Fisher-based parameter freezing")
