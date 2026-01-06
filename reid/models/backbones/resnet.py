@@ -144,10 +144,12 @@ class ResNet2(nn.Module):
                 m.weight.data.fill_(1)
                 m.bias.data.zero_()
 
+from reid.models.attention import CBAM
+
 class Bottleneck(nn.Module):
     expansion = 4
 
-    def __init__(self, inplanes, planes, stride=1, downsample=None):
+    def __init__(self, inplanes, planes, stride=1, downsample=None, with_attention=False):
         super(Bottleneck, self).__init__()
         self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
@@ -159,6 +161,10 @@ class Bottleneck(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.downsample = downsample
         self.stride = stride
+        
+        self.with_attention = with_attention
+        if with_attention:
+            self.cbam = CBAM(planes * 4)
 
     def forward(self, x):
         residual = x
@@ -177,6 +183,9 @@ class Bottleneck(nn.Module):
         if self.downsample is not None:
             residual = self.downsample(x)
 
+        if self.with_attention:
+            out = self.cbam(out)
+
         out += residual
         out = self.relu(out)
 
@@ -184,7 +193,7 @@ class Bottleneck(nn.Module):
 
 
 class ResNet(nn.Module):
-    def __init__(self, last_stride=2, block=Bottleneck,layers=[3, 4, 6, 3]):
+    def __init__(self, last_stride=2, block=Bottleneck,layers=[3, 4, 6, 3], with_attention=False):
         self.inplanes = 64
         super().__init__()
         self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3,
@@ -193,6 +202,8 @@ class ResNet(nn.Module):
         self.relu = nn.ReLU(inplace=True)   # add missed relu
         #self.maxpool = nn.MaxPool2d(kernel_size=2, stride=None, padding=0)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, ceil_mode=True)
+        self.with_attention = with_attention
+        
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
         self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
@@ -208,10 +219,10 @@ class ResNet(nn.Module):
             )
 
         layers = []
-        layers.append(block(self.inplanes, planes, stride, downsample))
+        layers.append(block(self.inplanes, planes, stride, downsample, with_attention=self.with_attention))
         self.inplanes = planes * block.expansion
         for i in range(1, blocks):
-            layers.append(block(self.inplanes, planes))
+            layers.append(block(self.inplanes, planes, with_attention=self.with_attention))
 
         return nn.Sequential(*layers)
 

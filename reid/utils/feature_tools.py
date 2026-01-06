@@ -18,6 +18,7 @@ def extract_features(model, data_loader):
     model.eval()
     with torch.no_grad():
         for i, (imgs,_, fnames, pids, cids, domains) in enumerate(data_loader):
+            imgs = imgs.cuda()
             features = model(imgs)
             for fname, feature, pid, cid in zip(fnames, features, pids, cids):
                 features_all.append(feature)

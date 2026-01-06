@@ -3,6 +3,7 @@ import torch.nn as nn
 from .backbones.resnet import ResNet, Bottleneck
 import copy
 import math
+from reid.models.attention import CBAM
 from reid.models.gem_pool import GeneralizedMeanPoolingP
 from reid.trainer import decode_transfer_img
 from torch.nn import functional as F
@@ -46,13 +47,19 @@ class JointModel(nn.Module):
             return out
     
 class Backbone(nn.Module):
-    def __init__(self,last_stride, bn_norm, with_ibn, with_se,block, num_classes,layers, dropout=0.5):
+    def __init__(self,last_stride, bn_norm, with_ibn, with_se,block, num_classes,layers, dropout=0.5,
+                 with_attention=False, head_attention=False):
         super(Backbone, self).__init__()
         self.in_planes = 2048
         self.base = ResNet(last_stride=last_stride,
                             block=block,
-                            layers=layers)
+                            layers=layers,
+                            with_attention=with_attention)
         print('using resnet50 as a backbone')
+
+        self.head_attention = head_attention
+        if self.head_attention:
+            self.head_cbam = CBAM(2048)
 
         
         self.bottleneck = nn.BatchNorm2d(2048)
@@ -83,10 +90,12 @@ class Backbone(nn.Module):
         return self.classifier(bn_feat[...,0,0])
 
 
-    def forward(self, x, domains=None, training_phase=None, get_all_feat=False,epoch=0, head_only=False):     
+    def forward(self, x, domains=None, training_phase=None, get_all_feat=False,epoch=0, head_only=False):
         if head_only:
             return self.forward_head(x)   
         x = self.base(x)
+        if self.head_attention:
+            x = self.head_cbam(x)
         global_feat = self.pooling_layer(x) # [16, 2048, 1, 1]
         bn_feat = self.bottleneck(global_feat) # [16, 2048, 1, 1]
         
@@ -137,8 +146,13 @@ class Backbone(nn.Module):
 
 def make_model(arg, num_class, camera_num, view_num,pretrain=True):
     if '50x'==arg.MODEL:
-        model = Backbone(1, 'BN', False, False, Bottleneck, num_class, [3, 4, 6, 3], dropout=arg.dropout)
-        print('===========building ResNet===========')
+        # Check if with_attention attribute exists in args, default to False if not
+        with_attention = getattr(arg, 'with_attention', False)
+        head_attention = getattr(arg, 'head_attention', False)
+        print(f'===========building ResNet (Backbone Attention: {with_attention}, Head Attention: {head_attention})===========')
+        model = Backbone(1, 'BN', False, False, Bottleneck, num_class, [3, 4, 6, 3], dropout=arg.dropout,
+                         with_attention=with_attention, head_attention=head_attention)
+        print('===========building ResNet-50 (Main ReID Model)===========')
         if pretrain:
             import torchvision
             res_base = torchvision.models.resnet50(pretrained=True)

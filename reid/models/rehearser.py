@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class KernelLearning(nn.Module):
-    def __init__(self,n_kernel,groups=3, G_lr=2e-4, G_B1=0.0, G_B2=0.999, adam_eps=1e-8, model='shufflenet_v2'):
+    def __init__(self,n_kernel,groups=3, G_lr=2e-4, G_B1=0.0, G_B2=0.999, adam_eps=1e-8, model='shufflenet_v2', mobilenet_type='small'):
         super(KernelLearning, self).__init__()
         
         # model='mobilenet_v3'
@@ -17,9 +17,24 @@ class KernelLearning(nn.Module):
             # print(shufflenet)
         else:
             import torchvision
-            mobilenet_v3=torchvision.models.mobilenetv3.mobilenet_v3_small(pretrained=True)
-            self.backbone=mobilenet_v3.features
-            n_dims = mobilenet_v3.classifier[0].in_features
+            if mobilenet_type == 'resnet50':
+                print('====== Initializing Rehearser with ResNet-50 ======')
+                resnet = torchvision.models.resnet50(pretrained=True)
+                self.backbone = nn.Sequential(
+                    resnet.conv1, resnet.bn1, resnet.relu, resnet.maxpool,
+                    resnet.layer1, resnet.layer2, resnet.layer3, resnet.layer4
+                )
+                n_dims = resnet.fc.in_features
+            elif mobilenet_type == 'large':
+                print('====== Initializing Rehearser with MobileNetV3-Large ======')
+                mobilenet_v3 = torchvision.models.mobilenetv3.mobilenet_v3_large(pretrained=True)
+                self.backbone=mobilenet_v3.features
+                n_dims = mobilenet_v3.classifier[0].in_features
+            else:
+                print('====== Initializing Rehearser with MobileNetV3-Small ======')
+                mobilenet_v3 = torchvision.models.mobilenetv3.mobilenet_v3_small(pretrained=True)
+                self.backbone=mobilenet_v3.features
+                n_dims = mobilenet_v3.classifier[0].in_features
         self.gap = nn.AdaptiveMaxPool2d(1) #global average pooling
 
         

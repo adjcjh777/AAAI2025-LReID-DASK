@@ -44,7 +44,7 @@ def remap(inputs_r,imgs_origin, training_phase, save_dir,dataset_name):
     print("saved images in ", vis_dir)
     
 class Trainer(object):
-    def __init__(self,cfg,args, model, num_classes, writer=None, grad_mask=None):
+    def __init__(self,cfg,args, model, num_classes, writer=None, grad_mask=None, scaler=None):
         super(Trainer, self).__init__()
         self.cfg = cfg
         self.args = args
@@ -52,6 +52,7 @@ class Trainer(object):
         self.writer = writer
         self.AF_weight = args.AF_weight
         self.grad_mask = grad_mask
+        self.scaler = scaler
 
         self.loss_fn, center_criterion = make_loss(cfg, num_classes=num_classes)
         self.loss_ce=nn.CrossEntropyLoss(reduction='batchmean')
@@ -140,16 +141,32 @@ class Trainer(object):
             loss=loss
                 
             optimizer.zero_grad()
-            loss.backward()
             
-            # Apply Gradient Mask (Fisher Freezing)
-            if self.grad_mask is not None:
-                for n, p in self.model.named_parameters():
-                    if n in self.grad_mask:
-                        if p.grad is not None:
-                            p.grad.data.mul_(self.grad_mask[n])
+            if self.scaler is not None:
+                self.scaler.scale(loss).backward()
+                
+                # Apply Gradient Mask (Fisher Freezing)
+                if self.grad_mask is not None:
+                    # Unscale gradients before modifying/clipping
+                    self.scaler.unscale_(optimizer)
+                    for n, p in self.model.named_parameters():
+                        if n in self.grad_mask:
+                            if p.grad is not None:
+                                p.grad.data.mul_(self.grad_mask[n])
+                
+                self.scaler.step(optimizer)
+                self.scaler.update()
+            else:
+                loss.backward()
+                
+                # Apply Gradient Mask (Fisher Freezing)
+                if self.grad_mask is not None:
+                    for n, p in self.model.named_parameters():
+                        if n in self.grad_mask:
+                            if p.grad is not None:
+                                p.grad.data.mul_(self.grad_mask[n])
 
-            optimizer.step()           
+                optimizer.step()           
 
             batch_time.update(time.time() - end)
             end = time.time()
